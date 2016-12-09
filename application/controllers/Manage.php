@@ -6,6 +6,11 @@ class Manage extends CI_Controller {
     parent::__construct();
     $this->output->delete_cache();
     $this->load->model('manage_model');
+
+    if ($this->session->userdata('usertype') != "T") {
+      $this->session->set_flashdata('message', '교사 전용 페이지입니다');
+      redirect("/");
+    }
   }
 
   public function index() {
