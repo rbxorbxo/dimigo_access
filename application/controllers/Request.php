@@ -6,6 +6,7 @@ class Request extends CI_Controller {
     parent::__construct();
     $this->output->delete_cache();
     $this->load->library('form_validation');
+    $this->load->model('R_outaccess', '');
     //$this->load->model('auth_model');
   }
 
@@ -34,10 +35,18 @@ class Request extends CI_Controller {
       $end = $this->input->post('end');
       $comment = nl2br($this->input->post('comment'), FALSE);
 
-      echo $reason."<br>";
+      $request_data = array(
+        "reason" => $reason,
+        "start" => $start,
+        "end" => $end,
+        "comment" => $comment
+      );
+
+      $this->R_outaccess->index($request_data);
+      /*echo $reason."<br>";
       echo $start."<br>";
       echo $end."<br>";
-      echo $comment."<br>";
+      echo $comment."<br>";*/
     }
   }
 }
