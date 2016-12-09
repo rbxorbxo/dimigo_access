@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-lg-12">
         <h1 class="page-header">
-          외출 신청 관리
+          외출 관리
         </h1>
         <ol class="breadcrumb">
           <li class="active">

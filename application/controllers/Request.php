@@ -10,7 +10,7 @@ class Request extends CI_Controller {
   }
 
   public function index() {
-    $this->load->view('core/head', array('title'=>'Dimigo Access - Request'));
+    $this->load->view('core/head', array('title'=>SITE_NAME." - Request"));
     $this->load->view('core/navbar');
     $this->load->view('request/main');
     $this->load->view('core/footer', array("active"=>"request"));
@@ -24,7 +24,7 @@ class Request extends CI_Controller {
     else $this->form_validation->set_rules('comment', '코멘트', 'trim');
 
     if ($this->form_validation->run() == FALSE) {
-      $this->load->view('core/head', array('title'=>'Dimigo Access - Request'));
+      $this->load->view('core/head', array('title'=>SITE_NAME." - Request"));
       $this->load->view('core/navbar');
       $this->load->view('request/main');
       $this->load->view('core/footer', array("active"=>"request"));

@@ -20,7 +20,7 @@ class Auth extends CI_Controller {
     $this->form_validation->set_rules('USER_PW', 'Password', 'trim|required');
 
     if ($this->form_validation->run() == FALSE) {
-      $this->load->view('core/head', array('title'=>'Dimigo Access'));
+      $this->load->view('core/head', array('title'=>SITE_NAME." - Login"));
       $this->load->view('core/navbar');
       $this->load->view('auth/login');
       $this->load->view('core/footer', array("active"=>"login"));
@@ -50,13 +50,13 @@ class Auth extends CI_Controller {
         redirect('/');
       } else if ($getUserData['HTTP_CODE'] == 404) {
         $this->session->set_flashdata('message', "아이디 또는 비밀번호가 틀렸습니다.");
-        $this->load->view('core/head', array('title'=>'Dimigo Access'));
+        $this->load->view('core/head', array('title'=>SITE_NAME." - Login"));
         $this->load->view('core/navbar');
         $this->load->view('auth/login');
         $this->load->view('core/footer', array("active"=>"login"));
       } else {
         $this->session->set_flashdata('message', "기타 에러 발생");
-        $this->load->view('core/head', array('title'=>'Dimigo Access'));
+        $this->load->view('core/head', array('title'=>SITE_NAME." - Login"));
         $this->load->view('core/navbar');
         $this->load->view('auth/login');
         $this->load->view('core/footer', array("active"=>"login"));
