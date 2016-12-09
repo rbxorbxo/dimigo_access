@@ -10,7 +10,7 @@ class Main extends CI_Controller {
   public function index() {
     $this->load->view('core/head');
     $this->load->view('core/navbar');
-    $this->load->view('auth/login');
+    $this->load->view('main/main');
     $this->load->view('core/footer');
   }
 }
