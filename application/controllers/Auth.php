@@ -27,7 +27,7 @@ class Auth extends CI_Controller {
 $this->load->view('core/head');
 $this->load->view('core/navbar');
 $this->load->view('auth/login');
-$this->load->view('core/footer');
+$this->load->view('core/footer', array("active"=>"login"));
 }
 
 function login(){
