@@ -5,10 +5,10 @@ class R_outaccess extends CI_Model {
   }
 
   function input($request_data){
-
+    //print_r($request_data);
     if($request_data){
 
-      echo $this->set_reason($request_data['reason']);
+      $reason = $this->set_reason($request_data['reason']);
 
       $data_form = array(
         "id" => $reason,
@@ -34,7 +34,7 @@ class R_outaccess extends CI_Model {
 
       $data_detail = array(
         "idx" => $insert_id,
-        "form" => 0,
+        "form" => $reason,
         "start_time" =>$request_data['start'],
         "end_time" =>$request_data['end'],
         "comment" => $request_data['comment']
@@ -42,6 +42,9 @@ class R_outaccess extends CI_Model {
 
       $this->db->insert('outaccess_check', $data_check);
       $this->db->insert('outaccess_detail', $data_detail);
+
+      $this->session->set_flashdata('message', '외출 신청이 완료 되었습니다.');
+      redirect('/');
 
     }else{
       $this->session->set_flashdata('message', '잘못된 접근입니다');
@@ -75,5 +78,7 @@ class R_outaccess extends CI_Model {
         $result = 0;
         break;
     }
+
+    return $result;
   }
 }
