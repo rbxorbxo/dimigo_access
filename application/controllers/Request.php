@@ -7,6 +7,11 @@ class Request extends CI_Controller {
     $this->output->delete_cache();
     $this->load->library('form_validation');
     $this->load->model('request_model');
+
+    if ($this->session->userdata('usertype') != "S") {
+      $this->session->set_flashdata('message', '학생 전용 페이지입니다');
+      redirect("/");
+    }
   }
 
   public function index() {

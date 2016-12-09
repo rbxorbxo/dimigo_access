@@ -69,12 +69,21 @@
       <li id="main">
         <a href="<?=site_url('/')?>"><i class="fa fa-fw fa-dashboard"></i> Main Page</a>
       </li>
-      <li id="request">
-        <a href="<?=site_url('request')?>"><i class="fa fa-fw fa-dashboard"></i> Request</a>
-      </li>
-      <li id="manage">
-        <a href="<?=site_url('manage')?>"><i class="fa fa-fw fa-dashboard"></i> Manage</a>
-      </li>
+      <?php
+      if ($this->session->userdata('usertype') == "S") {
+        ?>
+        <li id="request">
+          <a href="<?=site_url('request')?>"><i class="fa fa-fw fa-dashboard"></i> Request</a>
+        </li>
+        <?php
+      } else if ($this->session->userdata('usertype') == "T") {
+        ?>
+        <li id="manage">
+          <a href="<?=site_url('manage')?>"><i class="fa fa-fw fa-dashboard"></i> Manage</a>
+        </li>
+        <?php
+      }
+      ?>
       <li>
         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
         <ul id="demo" class="collapse">
