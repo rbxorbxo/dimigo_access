@@ -30,8 +30,6 @@ class Request extends CI_Controller {
       $this->load->view('core/footer', array("active"=>"request"));
     }	else {
       $reason = $this->input->post('reason');
-      if ($reason == "기타")
-      $reason = $this->input->post('reason-else');
       $start = $this->input->post('start');
       $end = $this->input->post('end');
       $comment = nl2br($this->input->post('comment'), FALSE);
