@@ -27,7 +27,7 @@
               </div>
               <div class="col-xs-9 text-right">
                 <div class="huge">3</div>
-                <div>New requests!</div>
+                <div>신청된 외출</div>
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@
               </div>
               <div class="col-xs-9 text-right">
                 <div class="huge">12</div>
-                <div>Rejected requests!</div>
+                <div>거절된 외출</div>
               </div>
             </div>
           </div>
@@ -71,7 +71,7 @@
               </div>
               <div class="col-xs-9 text-right">
                 <div class="huge">8</div>
-                <div>Accepted requests!</div>
+                <div>수락된 외출</div>
               </div>
             </div>
           </div>
@@ -105,6 +105,30 @@
             </div>
           </a>
         </div>
+      </div>
+    </div><!-- /.row -->
+    <div class="row">
+      <div class="col-lg-12">
+        <form method="post" action="<?=site_url('request/add')?>" role="form">
+          <div class="form-group">
+            1234
+          </div>
+          <div class="form-group">
+            1234
+          </div>
+          <div class="form-group">
+            1234
+          </div>
+          <div class="form-group">
+            1234
+          </div>
+          <div class="form-group">
+            1234
+          </div>
+          <div class="form-group">
+            1234
+          </div>
+        </form>
       </div>
     </div><!-- /.row -->
   </div><!-- /.container-fluid -->

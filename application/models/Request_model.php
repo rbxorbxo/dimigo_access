@@ -26,17 +26,12 @@ class Request_model extends CI_Model {
         'id' => $this->session->userdata('idx') ,
         'name' => $this->session->userdata('username'),
         'grade' => $this->session->userdata('usergrade'),
-        'class' => $this->session->userdata('userclass')
+        'class' => $this->session->userdata('userclass'),
+        'status' => "0"
       );
 
       $this->db->insert('outaccess', $data);
       $insert_id = $this->db->insert_id();
-
-      $data_check = array(
-        'idx' => $insert_id,
-        'Main_teacher' => 0,
-        'Head_teacher' => 0
-      );
 
       $data_detail = array(
         "idx" => $insert_id,
@@ -45,8 +40,6 @@ class Request_model extends CI_Model {
         "end_time" =>$request_data['end'],
         "comment" => $request_data['comment']
       );
-
-      $this->db->insert('outaccess_check', $data_check);
       $this->db->insert('outaccess_detail', $data_detail);
 
       $this->session->set_flashdata('message', '외출 신청이 완료 되었습니다.');
