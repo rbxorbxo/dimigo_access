@@ -19,8 +19,7 @@ class Request_model extends CI_Model {
         'id' => $this->session->userdata('idx') ,
         'name' => $this->session->userdata('username'),
         'grade' => $this->session->userdata('usergrade'),
-        'class' => $this->session->userdata('userclass'),
-        'status' => "0"
+        'class' => $this->session->userdata('userclass')
       );
 
       $this->db->insert('outaccess', $data);
@@ -73,7 +72,6 @@ class Request_model extends CI_Model {
 
   public function get() {
     $date = new DateTime('now', new DateTimeZone('Asia/Seoul'));
-    echo $date->format('Y-m-d');
     return $this->db->
     from('r_outaccess')->
     join('outaccess_form', 'r_outaccess.form = outaccess_form.id', 'left')->
@@ -85,7 +83,6 @@ class Request_model extends CI_Model {
 
   public function get_num() {
     $date = new DateTime('now', new DateTimeZone('Asia/Seoul'));
-    echo $date->format('Y-m-d');
     return $this->db->
     from('r_outaccess')->
     like('submit_time', $date->format('Y-m-d'), 'after')->
