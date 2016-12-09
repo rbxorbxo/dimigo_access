@@ -46,13 +46,23 @@ class Manage_model extends CI_Model {
     if (empty($type)) {
       $data = $this->db->
       from('r_outaccess')->
+      join('outaccess_form', 'r_outaccess.form = outaccess_form.id', 'left')->
       like('submit_time', $date->format('Y-m-d'), 'after')->
+      order_by('start_time', 'ASC')->
+      order_by('end_time', 'ASC')->
+      order_by('idx', 'ASC')->
       get()->
       result();
     } else {
       $data = $this->db->
+      from('r_outaccess')->
+      join('outaccess_form', 'r_outaccess.form = outaccess_form.id', 'left')->
       like('submit_time', $date->format('Y-m-d'), 'after')->
-      get_where('r_outaccess', array('status'=>$type))->
+      where(array('status'=>$type))->
+      order_by('start_time', 'ASC')->
+      order_by('end_time', 'ASC')->
+      order_by('idx', 'ASC')->
+      get()->
       result();
     }
 
