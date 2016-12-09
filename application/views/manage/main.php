@@ -48,12 +48,12 @@
                 <i class="fa fa-comments fa-5x"></i>
               </div>
               <div class="col-xs-9 text-right">
-                <div class="huge"><?=$num['new']?></div>
+                <div class="huge"><?=$num['fresh']?></div>
                 <div>신청된 외출</div>
               </div>
             </div>
           </div>
-          <a href="<?=site_url('manage/new')?>">
+          <a href="<?=site_url('manage/fresh')?>">
             <div class="panel-footer" data-toggle="modal" data-target=".bs-example-modal-lg">
               <span class="pull-left">세부사항</span>
               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

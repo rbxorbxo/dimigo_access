@@ -19,7 +19,7 @@ class Manage_model extends CI_Model {
     like('submit_time', $date->format('Y-m-d'), 'after')->
     count_all_results();
 
-    $num['new'] = $this->db->
+    $num['fresh'] = $this->db->
     from('r_outaccess')->
     like('submit_time', $date->format('Y-m-d'), 'after')->
     where(array('status'=>0))->

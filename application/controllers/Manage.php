@@ -26,12 +26,12 @@ class Manage extends CI_Controller {
     $this->load->view('core/footer', array("active"=>"manage"));
   }
 
-  public function new() {
+  public function fresh() {
     $data = $this->manage_model->getRequest(0);
 
     $this->load->view('core/head', array('title'=>SITE_NAME." - Manage"));
     $this->load->view('core/navbar');
-    $this->load->view('manage/new', array('data'=>$data));
+    $this->load->view('manage/fresh', array('data'=>$data));
     $this->load->view('core/footer', array("active"=>"manage"));
   }
 
