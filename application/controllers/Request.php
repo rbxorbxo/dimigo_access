@@ -42,7 +42,7 @@ class Request extends CI_Controller {
         "comment" => $comment
       );
 
-      $this->R_outaccess->index($request_data);
+      $this->R_outaccess->input($request_data);
       /*echo $reason."<br>";
       echo $start."<br>";
       echo $end."<br>";

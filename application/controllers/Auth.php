@@ -39,10 +39,10 @@ class Auth extends CI_Controller {
         $result = $getUserData["HTTP_RESULT"][0];
 
         $data = array(
-          "idx" => $result->id,
-          "userid" => $result->username,
-          "username" => $result->name,
-          "usertype" => $result->user_type
+          "idx" => $result->id, // user 인덱스
+          "userid" => $result->username, // user id
+          "username" => $result->name, // user 이름
+          "usertype" => $result->user_type // user 타입
         );
 
         $this->session->set_userdata($data);

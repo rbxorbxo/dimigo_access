@@ -1,5 +1,5 @@
 <?php
-define('SITE_NAME', 'Dimigo Access');
+define('SITE_NAME', '디미고 외출증 관리 시스템');
 /**
  * CodeIgniter
  *
