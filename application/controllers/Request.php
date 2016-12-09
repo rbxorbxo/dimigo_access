@@ -53,4 +53,33 @@ class Request extends CI_Controller {
     $this->load->view('request/show', array('requests'=>$requests));
     $this->load->view('core/footer', array('active'=>'request'));
   }
+
+  public function edit($idx) {
+    $this->form_validation->set_rules('reason', '외출 사유', 'trim|required');
+    $this->form_validation->set_rules('start', '시작 시간', 'trim|required');
+    $this->form_validation->set_rules('end', '종료 시간', 'trim|required');
+    if ($this->input->post('reason') == 0) $this->form_validation->set_rules('comment', '코멘트', 'trim|required');
+    else $this->form_validation->set_rules('comment', '코멘트', 'trim');
+
+    if ($this->form_validation->run() == FALSE) {
+      $this->load->view('core/head', array('title'=>SITE_NAME." - Request"));
+      $this->load->view('core/navbar');
+      $this->load->view('request/edit', array('reasons'=>$this->request_model->getReason(), 'original'=>$this->request_model->get($idx)[0]));
+      $this->load->view('core/footer', array("active"=>"request"));
+    }	else {
+      $reason = $this->input->post('reason');
+      $start = $this->input->post('start');
+      $end = $this->input->post('end');
+      $comment = nl2br($this->input->post('comment'), FALSE);
+
+      $request_data = array(
+        "reason" => $reason,
+        "start" => $start,
+        "end" => $end,
+        "comment" => $comment
+      );
+
+      $this->request_model->update($idx, $request_data);
+    }
+  }
 }
