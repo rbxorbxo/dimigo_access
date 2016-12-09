@@ -23,7 +23,7 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <form method="post" action="" role="form">
+        <form method="post" action="<?=site_url('Auth/login')?>" role="form">
           <div class="form-group">
             <h3 class="text-left">ID</h3>
             <input type="text" class="form-control" name="USER_ID" required>
