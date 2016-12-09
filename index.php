@@ -1,4 +1,5 @@
 <?php
+define('SITE_NAME', 'Dimigo Access');
 /**
  * CodeIgniter
  *
