@@ -20,7 +20,6 @@ $(document).ready(function () {
   if (msg) alert(msg);
 
   $("#<?=isset($active) ? $active : ""?>").addClass("active");
-  console.log(<?=$active?>);
 });
 </script>
 
