@@ -33,10 +33,10 @@ class Request_model extends CI_Model {
       $this->db->insert('outaccess_detail', $data_detail);
 
       $this->session->set_flashdata('message', '외출 신청이 완료 되었습니다.');
-      redirect(site_url('request'));
+      redirect(site_url('request/show'));
     } else {
       $this->session->set_flashdata('message', '잘못된 접근입니다');
-      redirect(site_url('request'));
+      redirect(site_url('/'));
     }
   }
 
@@ -51,15 +51,15 @@ class Request_model extends CI_Model {
       $this->db->update('outaccess_detail', $data_detail, array('idx'=>$idx));
 
       $this->session->set_flashdata('message', '외출 정보 수정이 완료 되었습니다.');
-      redirect(site_url('request'));
+      redirect(site_url('request/show'));
     } else {
       $this->session->set_flashdata('message', '잘못된 접근입니다');
-      redirect(site_url('request'));
+      redirect(site_url('/'));
     }
   }
 
   function getReason(){
-    return $this->db->from('outaccess_form')->get()->result();
+    return $this->db->from('outaccess_form')->order_by('id', 'ASC')->get()->result();
   }
 
   public function get($idx="") {
@@ -70,6 +70,9 @@ class Request_model extends CI_Model {
       join('outaccess_form', 'r_outaccess.form = outaccess_form.id', 'left')->
       like('r_outaccess.submit_time', $date->format('Y-m-d'), 'after')->
       where(array('r_outaccess.id'=>$this->session->userdata('idx')))->
+      order_by('start_time', 'ASC')->
+      order_by('end_time', 'ASC')->
+      order_by('idx', 'ASC')->
       get()->
       result();
     } else {
