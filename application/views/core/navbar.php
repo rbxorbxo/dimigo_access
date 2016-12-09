@@ -15,118 +15,127 @@
   <!-- Top Menu Items -->
   <ul class="nav navbar-right top-nav">
     <!--li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-      <ul class="dropdown-menu message-dropdown">
-        <li class="message-preview">
-          <a href="#">
-            <div class="media">
-              <span class="pull-left">
-                <img class="media-object" src="http://placehold.it/50x50" alt="">
-              </span>
-              <div class="media-body">
-                <h5 class="media-heading"><strong>John Smith</strong>
-                </h5>
-                <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                <p>Lorem ipsum dolor sit amet, consectetur...</p>
-              </div>
-            </div>
-          </a>
-        </li>
-        <li class="message-preview">
-          <a href="#">
-            <div class="media">
-              <span class="pull-left">
-                <img class="media-object" src="http://placehold.it/50x50" alt="">
-              </span>
-              <div class="media-body">
-                <h5 class="media-heading"><strong>John Smith</strong>
-                </h5>
-                <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                <p>Lorem ipsum dolor sit amet, consectetur...</p>
-              </div>
-            </div>
-          </a>
-        </li>
-        <li class="message-preview">
-          <a href="#">
-            <div class="media">
-              <span class="pull-left">
-                <img class="media-object" src="http://placehold.it/50x50" alt="">
-              </span>
-              <div class="media-body">
-                <h5 class="media-heading"><strong>John Smith</strong>
-                </h5>
-                <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                <p>Lorem ipsum dolor sit amet, consectetur...</p>
-              </div>
-            </div>
-          </a>
-        </li>
-        <li class="message-footer">
-          <a href="#">Read All New Messages</a>
-        </li>
-      </ul>
-    </li-->
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+    <ul class="dropdown-menu message-dropdown">
+    <li class="message-preview">
+    <a href="#">
+    <div class="media">
+    <span class="pull-left">
+    <img class="media-object" src="http://placehold.it/50x50" alt="">
+  </span>
+  <div class="media-body">
+  <h5 class="media-heading"><strong>John Smith</strong>
+</h5>
+<p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+<p>Lorem ipsum dolor sit amet, consectetur...</p>
+</div>
+</div>
+</a>
+</li>
+<li class="message-preview">
+<a href="#">
+<div class="media">
+<span class="pull-left">
+<img class="media-object" src="http://placehold.it/50x50" alt="">
+</span>
+<div class="media-body">
+<h5 class="media-heading"><strong>John Smith</strong>
+</h5>
+<p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+<p>Lorem ipsum dolor sit amet, consectetur...</p>
+</div>
+</div>
+</a>
+</li>
+<li class="message-preview">
+<a href="#">
+<div class="media">
+<span class="pull-left">
+<img class="media-object" src="http://placehold.it/50x50" alt="">
+</span>
+<div class="media-body">
+<h5 class="media-heading"><strong>John Smith</strong>
+</h5>
+<p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+<p>Lorem ipsum dolor sit amet, consectetur...</p>
+</div>
+</div>
+</a>
+</li>
+<li class="message-footer">
+<a href="#">Read All New Messages</a>
+</li>
+</ul>
+</li-->
 
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-      <ul class="dropdown-menu alert-dropdown">
-        <li>
-          <a href="#">박규태 <span class="label label-danger pull-right">병원</span></a>
-        </li>
-        <li>
-          <a href="#">박규태 <span class="label label-primary pull-right">치킨</span></a>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <a href="#">View All</a>
-        </li>
-      </ul>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+  <ul class="dropdown-menu alert-dropdown">
+    <li>
+      <a href="#">박규태 <span class="label label-danger pull-right">병원</span></a>
     </li>
-
-    <!-- If Logged In -->
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Username <b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li>
-          <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <a href="#"><i class="fa fa-fw fa-power-off"></i> Logout</a>
-        </li>
-      </ul>
+    <li>
+      <a href="#">박규태 <span class="label label-primary pull-right">치킨</span></a>
     </li>
-
-    <!-- If not -->
-    <li class="dropdown" id="login">
-      <a href="<?=site_url('auth/login')?>"><i class="fa fa-fw fa-user"></i> Login</a>
+    <li class="divider"></li>
+    <li>
+      <a href="#">View All</a>
     </li>
   </ul>
+</li>
 
-  <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav side-nav">
-      <li id="main">
-        <a href="/"><i class="fa fa-fw fa-dashboard"></i> Main Page</a>
+<!-- If Logged In -->
+<?php
+if (!empty($this->session->userdata('userid'))) {
+  ?>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?=$this->session->userdata('username')?> <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
       </li>
       <li>
-        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-        <ul id="demo" class="collapse">
-          <li>
-            <a href="#">Dropdown Item</a>
-          </li>
-          <li>
-            <a href="#">Dropdown Item</a>
-          </li>
-        </ul>
+        <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a href="<?=site_url('auth/logout')?>"><i class="fa fa-fw fa-power-off"></i> Logout</a>
       </li>
     </ul>
-  </div><!-- /.navbar-collapse -->
+  </li>
+  <?php
+} else {
+?>
+
+<!-- If not -->
+<li class="dropdown" id="login">
+  <a href="<?=site_url('auth/login')?>"><i class="fa fa-fw fa-user"></i> Login</a>
+</li>
+<?php
+}
+?>
+</ul>
+
+<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+  <ul class="nav navbar-nav side-nav">
+    <li id="main">
+      <a href="/"><i class="fa fa-fw fa-dashboard"></i> Main Page</a>
+    </li>
+    <li>
+      <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+      <ul id="demo" class="collapse">
+        <li>
+          <a href="#">Dropdown Item</a>
+        </li>
+        <li>
+          <a href="#">Dropdown Item</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div><!-- /.navbar-collapse -->
 </nav><!-- Navigation -->

@@ -1,3 +1,6 @@
+<?php
+var_dump($_SESSION);
+?>
 <div id="page-wrapper">
 
   <div class="container-fluid">
