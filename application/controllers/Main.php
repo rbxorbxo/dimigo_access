@@ -7,8 +7,9 @@ class Main extends CI_Controller {
     $this->output->delete_cache();
   }
 
-	public function index() {
-		$this->load->view('core/head');
+  public function index() {
+    $this->load->view('core/head');
+    $this->load->view('main/main');
     $this->load->view('core/footer');
-	}
+  }
 }
