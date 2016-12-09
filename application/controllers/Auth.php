@@ -42,14 +42,14 @@ class Auth extends CI_Controller {
           "idx" => $result->id,
           "userid" => $result->username,
           "username" => $result->name,
-          "usertype" => $result->usertype
+          "usertype" => $result->user_type
         );
 
         $this->session->set_userdata($data);
 
         redirect('/');
       } else if ($getUserData['HTTP_CODE'] == 404) {
-        $this->session->set_flashdata('message', "데이터 없음");
+        $this->session->set_flashdata('message', "아이디 또는 비밀번호가 틀렸습니다.");
         $this->load->view('core/head', array('title'=>'Dimigo Access'));
         $this->load->view('core/navbar');
         $this->load->view('auth/login');
