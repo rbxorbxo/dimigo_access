@@ -26,7 +26,7 @@
                 <i class="fa fa-comments fa-5x"></i>
               </div>
               <div class="col-xs-9 text-right">
-                <div class="huge">3</div>
+                <div class="huge"><?=$num?></div>
                 <div>My requests!</div>
               </div>
             </div>
