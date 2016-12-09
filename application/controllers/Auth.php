@@ -38,11 +38,18 @@ class Auth extends CI_Controller {
 
         $result = $getUserData["HTTP_RESULT"][0];
 
+        $apiURL = "/v1/user-students/";
+        $getUserBasicData = $this->auth_model->GETAPI($apiURL.$USERID);
+
+        $result1 = $getUserBasicData['HTTP_RESULT'];
+
         $data = array(
           "idx" => $result->id, // user 인덱스
           "userid" => $result->username, // user id
           "username" => $result->name, // user 이름
-          "usertype" => $result->user_type // user 타입
+          "usertype" => $result->user_type, // user 타입
+          "usergrade" => $result1->grade, // user 학년
+          "userclass" => $result1->class // user 반
         );
 
         $this->session->set_userdata($data);
