@@ -106,7 +106,7 @@
 
     <!-- If not -->
     <li class="dropdown" id="login">
-      <a href="/index.php/auth/"><i class="fa fa-fw fa-user"></i> Login</a>
+      <a href="<?=site_url('auth/login')?>"><i class="fa fa-fw fa-user"></i> Login</a>
     </li>
   </ul>
 

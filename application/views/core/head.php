@@ -7,11 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Bootstrap Admin Template</title>
-
-  <?
-    //login session에따라 권한 부여
-  ?>
+  <title><?=$title?></title>
 
   <!-- Bootstrap Core CSS -->
   <link href="/css/bootstrap.min.css" rel="stylesheet">
