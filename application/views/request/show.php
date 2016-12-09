@@ -17,23 +17,17 @@
     </div>
     <!-- /.row -->
 
-    <?
-    print_r($requests);
-    ?>
-
     <div class="row">
       <div class="col-lg-12">
         <div class="table-responsive">
           <table class="table table-bordered table-hover table-striped">
             <thead>
               <tr>
-                <th>Order #</th>
-                <th>Order Date</th>
-                <th>Order Time</th>
-                <th>Amount (USD)</th>
-                <th>Order Date</th>
-                <th>Order Time</th>
-                <th>Amount (USD)</th>
+                <th style="width: 100px;">승인 여부</th>
+                <th style="width: 100px;">외출 사유</th>
+                <th style="width: 80px;">외출</th>
+                <th style="width: 80px;">귀교</th>
+                <th>비고</th>
               </tr>
             </thead>
             <tbody>
@@ -41,13 +35,11 @@
               foreach ($requests as $req) {
                 ?>
                 <tr>
+                  <td><?= $req->status ? "승인됨" : "대기중" ?></td>
                   <td><?= $req->form ?></td>
-                  <td><?= $req->form ?></td>
-                  <td><?= $req->form ?></td>
-                  <td><?= $req->form ?></td>
-                  <td><?= $req->form ?></td>
-                  <td><?= $req->form ?></td>
-                  <td><?= $req->form ?></td>
+                  <td><?= $req->start_time ?></td>
+                  <td><?= $req->end_time ?></td>
+                  <td class="text-left"><?= $req->comment ?></td>
                 </tr>
                 <?php
               }
