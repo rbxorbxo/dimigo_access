@@ -15,13 +15,6 @@ class Request_model extends CI_Model {
     if (!empty($request_data)) {
       $reason = $this->set_reason($request_data['reason']);
 
-      $data_form = array(
-        "id" => $reason,
-        "form" => $request_data['reason']
-      );
-
-      $this->db->insert('outaccess_form', $data_form);
-
       $data = array(
         'id' => $this->session->userdata('idx') ,
         'name' => $this->session->userdata('username'),
@@ -74,9 +67,19 @@ class Request_model extends CI_Model {
     return $result;
   }
 
+  function getReason(){
+    return $this->db->from('outaccess_form')->get()->result();
+  }
+
   public function get() {
-    $result = $this->db->select('idx')->get_where('outaccess', array('id'=>$this->session->userdata('idx')))->result();
-    print_r($result);
-    die();
+    $date = new DateTime('now', new DateTimeZone('Asia/Seoul'));
+    echo $date->format('Y-m-d');
+    return $this->db->
+    from('r_outaccess')->
+    join('outaccess_form', 'r_outaccess.form = outaccess_form.id', 'left')->
+    like('r_outaccess.submit_time', $date->format('Y-m-d'), 'after')->
+    where(array('r_outaccess.id'=>$this->session->userdata('idx')))->
+    get()->
+    result();
   }
 }

@@ -31,7 +31,7 @@
               </div>
             </div>
           </div>
-          <a href="#">
+          <a href="<?=site_url('request/show')?>">
             <div class="panel-footer">
               <span class="pull-left">View Details</span>
               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -77,20 +77,19 @@
         <form method="post" action="<?=site_url('request/add')?>" role="form">
           <div class="form-group">
             <h3 class="text-left">외출 사유</h3>
+            <?php
+            foreach ($reasons as $reason) {
+              if ($reason->id != 0) {
+                ?>
+                <label class="form-group form-control">
+                  <input type="radio" name="reason" value="<?=$reason->id?>"> <?=$reason->form?>
+                </label>
+                <?php
+              }
+            }
+            ?>
             <label class="form-group form-control">
-              <input type="radio" name="reason" value="병원"> 병원
-            </label>
-            <label class="form-group form-control">
-              <input type="radio" name="reason" value="생필품"> 생필품
-            </label>
-            <label class="form-group form-control">
-              <input type="radio" name="reason" value="치킨"> 치킨
-            </label>
-            <label class="form-group form-control">
-              <input type="radio" name="reason" value="학원"> 학원
-            </label>
-            <label class="form-group form-control">
-              <input type="radio" name="reason" value="기타"> 기타
+              <input type="radio" name="reason" value="0"> 기타
             </label>
           </div>
           <div class="form-group">
