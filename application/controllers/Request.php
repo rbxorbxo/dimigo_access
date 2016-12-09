@@ -6,8 +6,7 @@ class Request extends CI_Controller {
     parent::__construct();
     $this->output->delete_cache();
     $this->load->library('form_validation');
-    $this->load->model('R_outaccess', '');
-    //$this->load->model('auth_model');
+    $this->load->model('request_model');
   }
 
   public function index() {
@@ -42,11 +41,16 @@ class Request extends CI_Controller {
         "comment" => $comment
       );
 
-      $this->R_outaccess->input($request_data);
-      /*echo $reason."<br>";
-      echo $start."<br>";
-      echo $end."<br>";
-      echo $comment."<br>";*/
+      $this->request_model->input($request_data);
     }
+  }
+
+  public function show() {
+    $this->request_model->get();
+
+    $this->load->view('core/head', array('title'=>SITE_NAME." - Request"));
+    $this->load->view('core/navbar');
+    $this->load->view('request/show');
+    $this->load->view('core/footer', array('active'=>'request'));
   }
 }
