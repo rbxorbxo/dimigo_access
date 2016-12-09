@@ -9,12 +9,12 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="index.html">SB Admin</a>
+    <a class="navbar-brand" href="/">Dimigo Access</a>
   </div>
 
   <!-- Top Menu Items -->
   <ul class="nav navbar-right top-nav">
-    <li class="dropdown">
+    <!--li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
       <ul class="dropdown-menu message-dropdown">
         <li class="message-preview">
@@ -66,27 +66,16 @@
           <a href="#">Read All New Messages</a>
         </li>
       </ul>
-    </li>
+    </li-->
+
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
       <ul class="dropdown-menu alert-dropdown">
         <li>
-          <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+          <a href="#">박규태 <span class="label label-danger pull-right">병원</span></a>
         </li>
         <li>
-          <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-        </li>
-        <li>
-          <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-        </li>
-        <li>
-          <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-        </li>
-        <li>
-          <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-        </li>
-        <li>
-          <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+          <a href="#">박규태 <span class="label label-primary pull-right">치킨</span></a>
         </li>
         <li class="divider"></li>
         <li>
@@ -94,8 +83,10 @@
         </li>
       </ul>
     </li>
+
+    <!-- If Logged In -->
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Username <b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li>
           <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -108,32 +99,30 @@
         </li>
         <li class="divider"></li>
         <li>
-          <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+          <a href="#"><i class="fa fa-fw fa-power-off"></i> Logout</a>
         </li>
       </ul>
     </li>
+
+    <!-- If not -->
+    <!--li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Join us <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+        </li>
+          <li>
+            <a href="#"><i class="fa fa-fw fa-user"></i> Sign Up</a>
+          </li>
+      </ul>
+    </li-->
   </ul>
 
   <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
       <li class="active">
-        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-      </li>
-      <li>
-        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
-      </li>
-      <li>
-        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
-      </li>
-      <li>
-        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
-      </li>
-      <li>
-        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-      </li>
-      <li>
-        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
+        <a href="/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
       </li>
       <li>
         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
@@ -146,12 +135,6 @@
           </li>
         </ul>
       </li>
-      <li>
-        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-      </li>
-      <li>
-        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-      </li>
     </ul>
   </div><!-- /.navbar-collapse -->
-</nav>
+</nav><!-- Navigation -->
