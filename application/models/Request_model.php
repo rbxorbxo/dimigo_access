@@ -82,4 +82,14 @@ class Request_model extends CI_Model {
     get()->
     result();
   }
+
+  public function get_num() {
+    $date = new DateTime('now', new DateTimeZone('Asia/Seoul'));
+    echo $date->format('Y-m-d');
+    return $this->db->
+    from('r_outaccess')->
+    like('submit_time', $date->format('Y-m-d'), 'after')->
+    where(array('id'=>$this->session->userdata('idx')))->
+    count_all_results();
+  }
 }
