@@ -35,6 +35,18 @@ class Auth extends CI_Controller {
 
       if ($getUserData["HTTP_CODE"] == 200) {
         $this->session->set_flashdata('message', "로그인 성공");
+
+        $result = $getUserData["HTTP_RESULT"][0];
+
+        $data = array(
+          "idx" => $result->id,
+          "userid" => $result->username,
+          "username" => $result->name,
+          "usertype" => $result->usertype
+        );
+
+        $this->session->set_userdata($data);
+
         redirect('/');
       } else if ($getUserData['HTTP_CODE'] == 404) {
         $this->session->set_flashdata('message', "데이터 없음");
@@ -50,5 +62,10 @@ class Auth extends CI_Controller {
         $this->load->view('core/footer', array("active"=>"login"));
       }
     }
+  }
+
+  public function logout() {
+    $this->session->sess_destroy();
+    redirect("/");
   }
 }
