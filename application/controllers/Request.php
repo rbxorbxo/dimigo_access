@@ -20,7 +20,8 @@ class Request extends CI_Controller {
     $this->form_validation->set_rules('reason', '외출 사유', 'trim|required');
     $this->form_validation->set_rules('start', '시작 시간', 'trim|required');
     $this->form_validation->set_rules('end', '종료 시간', 'trim|required');
-    $this->form_validation->set_rules('comment', '코멘트', 'trim');
+    if ($this->input->post('reason') == "기타") $this->form_validation->set_rules('comment', '코멘트', 'trim|required');
+    else $this->form_validation->set_rules('comment', '코멘트', 'trim');
 
     if ($this->form_validation->run() == FALSE) {
       $this->load->view('core/head', array('title'=>'Dimigo Access - Request'));
@@ -29,6 +30,8 @@ class Request extends CI_Controller {
       $this->load->view('core/footer', array("active"=>"request"));
     }	else {
       $reason = $this->input->post('reason');
+      if ($reason == "기타")
+      $reason = $this->input->post('reason-else');
       $start = $this->input->post('start');
       $end = $this->input->post('end');
       $comment = nl2br($this->input->post('comment'), FALSE);
