@@ -77,7 +77,21 @@
         <form method="post" action="<?=site_url('request/add')?>" role="form">
           <div class="form-group">
             <h3 class="text-left">외출 사유</h3>
-            <input type="text" class="form-control" name="reason" placeholder="외출 사유를 적어주세요" value="<?=set_value('reason')?>">
+            <label class="form-group form-control">
+              <input type="radio" name="reason" value="병원"> 병원
+            </label>
+            <label class="form-group form-control">
+              <input type="radio" name="reason" value="생필품"> 생필품
+            </label>
+            <label class="form-group form-control">
+              <input type="radio" name="reason" value="치킨"> 치킨
+            </label>
+            <label class="form-group form-control">
+              <input type="radio" name="reason" value="학원"> 학원
+            </label>
+            <label class="form-group form-control">
+              <input type="radio" name="reason" value="기타"> 기타
+            </label>
           </div>
           <div class="form-group">
             <h3 class="text-left">외출 시간</h3>
