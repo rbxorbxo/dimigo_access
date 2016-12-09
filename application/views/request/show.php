@@ -23,11 +23,12 @@
           <table class="table table-bordered table-hover table-striped">
             <thead>
               <tr>
-                <th style="width: 100px;">승인 여부</th>
-                <th style="width: 100px;">외출 사유</th>
-                <th style="width: 80px;">외출</th>
-                <th style="width: 80px;">귀교</th>
+                <th style="width: 70px;">승인 여부</th>
+                <th style="width: 70px;">외출 사유</th>
+                <th style="width: 55px;">외출</th>
+                <th style="width: 55px;">귀교</th>
                 <th>비고</th>
+                <th style="width: 70px;">수정</th>
               </tr>
             </thead>
             <tbody>
@@ -40,6 +41,13 @@
                   <td><?= $req->start_time ?></td>
                   <td><?= $req->end_time ?></td>
                   <td class="text-left"><?= $req->comment ?></td>
+                  <td>
+                    <a href="<?= $req->status == 0 ? site_url('request/edit/'.$req->idx) : '#" onclick="return false' ?>"
+                      class="btn btn-warning"
+                      <?= $req->status == 0 ? "" : "disabled" ?>>
+                      수정
+                    </a>
+                  </td>
                 </tr>
                 <?php
               }
