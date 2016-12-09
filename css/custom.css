@@ -4,3 +4,8 @@
   color: #fff;
   background-color: #080808;
 }
+
+textarea {
+  resize: none;
+  height: 70px !important;
+}
