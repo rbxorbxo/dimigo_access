@@ -11,6 +11,6 @@ class Main extends CI_Controller {
     $this->load->view('core/head');
     $this->load->view('core/navbar');
     $this->load->view('main/main');
-    $this->load->view('core/footer');
+    $this->load->view('core/footer', array("active"=>"main"));
   }
 }
