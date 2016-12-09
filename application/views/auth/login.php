@@ -49,7 +49,6 @@
             <input type="password" class="form-control" name="USER_PW" value="<?=set_value('USER_PW')?>">
           </div>
           <div class="form-group text-right">
-            <button class="btn btn-default" onclick="history.go(-1)">Cancel</button>
             <input type="submit" class="btn btn-primary" value="Login">
           </div>
         </form>
