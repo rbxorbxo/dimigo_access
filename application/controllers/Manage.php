@@ -10,12 +10,12 @@ class Manage extends CI_Controller {
 
   public function index() {
 
-    $total = $this->Manager_model->get_request()->result();
-
+    $total = $this->Manager_model->get_request();
+    $data = $total->result();
 
     $this->load->view('core/head', array('title'=>SITE_NAME." - Manage"));
     $this->load->view('core/navbar');
-    $this->load->view('manage/main',$total);
+    $this->load->view('manage/main',array('data'=>$data, 'abc' =>"123") );
     $this->load->view('core/footer', array("active"=>"manage"));
   }
 }
