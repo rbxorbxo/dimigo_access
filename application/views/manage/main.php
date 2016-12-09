@@ -26,12 +26,12 @@
                 <i class="fa fa-support fa-5x"></i>
               </div>
               <div class="col-xs-9 text-right">
-                <div class="huge">7</div>
+                <div class="huge"><?=$num['all']?></div>
                 <div>전체 외출</div>
               </div>
             </div>
           </div>
-          <a href="#">
+          <a href="<?=site_url('manage/all')?>">
             <div class="panel-footer" data-toggle="modal" data-target=".bs-example-modal-lg">
               <span class="pull-left">세부사항</span>
               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -48,12 +48,12 @@
                 <i class="fa fa-comments fa-5x"></i>
               </div>
               <div class="col-xs-9 text-right">
-                <div class="huge">3</div>
+                <div class="huge"><?=$num['new']?></div>
                 <div>신청된 외출</div>
               </div>
             </div>
           </div>
-          <a href="#">
+          <a href="<?=site_url('manage/new')?>">
             <div class="panel-footer" data-toggle="modal" data-target=".bs-example-modal-lg">
               <span class="pull-left">세부사항</span>
               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -70,12 +70,12 @@
                 <i class="fa fa-tasks fa-5x"></i>
               </div>
               <div class="col-xs-9 text-right">
-                <div class="huge">12</div>
+                <div class="huge"><?=$num['reject']?></div>
                 <div>거절된 외출</div>
               </div>
             </div>
           </div>
-          <a href="#">
+          <a href="<?=site_url('manage/reject')?>">
             <div class="panel-footer">
               <span class="pull-left">세부사항</span>
               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -92,12 +92,12 @@
                 <i class="fa fa-shopping-cart fa-5x"></i>
               </div>
               <div class="col-xs-9 text-right">
-                <div class="huge">8</div>
+                <div class="huge"><?=$num['admit']?></div>
                 <div>수락된 외출</div>
               </div>
             </div>
           </div>
-          <a href="#">
+          <a href="<?=site_url('manage/admit')?>">
             <div class="panel-footer">
               <span class="pull-left">세부사항</span>
               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

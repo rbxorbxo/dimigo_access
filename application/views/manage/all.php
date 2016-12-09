@@ -32,7 +32,7 @@
             </thead>
             <tbody>
               <?php
-              foreach ($requests as $req) {
+              foreach ($data as $req) {
                 ?>
                 <tr>
                   <td><?= $req->status == 1 ? "승인됨" : ($req->status == -1 ? "거절됨" : "대기중") ?></td>
