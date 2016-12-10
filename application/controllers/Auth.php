@@ -24,7 +24,7 @@ class Auth extends CI_Controller {
       $this->load->view('core/navbar');
       $this->load->view('auth/login');
       $this->load->view('core/footer', array("active"=>"login"));
-    }   else {
+    } else {
       $USERID = $this->input->post('USER_ID');
       $USERPW = $this->input->post('USER_PW');
 

@@ -10,7 +10,6 @@ class Main extends CI_Controller {
   public function index() {
     $this->load->view('core/head', array('title'=>SITE_NAME));
     $this->load->view('core/navbar');
-    //print_r($this->session->userdata());
     $this->load->view('main/main');
     $this->load->view('core/footer', array("active"=>"main"));
   }

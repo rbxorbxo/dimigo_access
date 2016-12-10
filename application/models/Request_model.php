@@ -12,6 +12,10 @@ class Request_model extends CI_Model {
   }
 
   function input($request_data){
+    $serial = "dimi";
+    $serial .= base_convert(round(fmod(microtime(true), 1000000) * 1000), 10, 14);
+    $serial = strrev($serial);
+
     if (!empty($request_data)) {
       $data = array(
         'id' => $this->session->userdata('idx') ,
@@ -28,11 +32,12 @@ class Request_model extends CI_Model {
         "form" => $request_data['reason'],
         "start_time" =>$request_data['start'],
         "end_time" =>$request_data['end'],
-        "comment" => $request_data['comment']
+        "comment" => $request_data['comment'],
+        "serial" => $serial
       );
       $this->db->insert('outaccess_detail', $data_detail);
 
-      $this->session->set_flashdata('message', '외출 신청이 완료 되었습니다.');
+      $this->session->set_flashdata('message', '외출 신청이 완료 되었습니다.\\n일련번호는 '.$serial.' 입니다.');
       redirect(site_url('request/show'));
     } else {
       $this->session->set_flashdata('message', '잘못된 접근입니다');
