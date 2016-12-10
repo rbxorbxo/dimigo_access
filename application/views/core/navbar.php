@@ -15,22 +15,6 @@
   <!-- Top Menu Items -->
   <ul class="nav navbar-right top-nav">
 
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-      <ul class="dropdown-menu alert-dropdown">
-        <li>
-          <a href="#">박규태 <span class="label label-danger pull-right">병원</span></a>
-        </li>
-        <li>
-          <a href="#">박규태 <span class="label label-primary pull-right">치킨</span></a>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <a href="#">View All</a>
-        </li>
-      </ul>
-    </li>
-
     <?php
     if (!empty($this->session->userdata('userid'))) {
       ?>
@@ -67,34 +51,34 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
       <li id="main">
-        <a href="<?=site_url('/')?>"><i class="fa fa-fw fa-dashboard"></i> Main Page</a>
+        <a href="<?=site_url('/')?>"><i class="fa fa-fw fa-tag"></i> Main Page</a>
+      </li>
+      <li id="search">
+          <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
+          <ul id="demo" class="collapse">
+              <li>
+                  <a href="<?=site_url('search/serial')?>"><i class="fa fa-fw fa-sort-numeric-asc"></i> Serial</a>
+              </li>
+              <li>
+                  <a href="<?=site_url('search/name')?>"><i class="fa fa-fw fa-sort-numeric-asc"></i> Name</a>
+              </li>
+          </ul>
       </li>
       <?php
       if ($this->session->userdata('usertype') == "S") {
         ?>
         <li id="request">
-          <a href="<?=site_url('request')?>"><i class="fa fa-fw fa-dashboard"></i> Request</a>
+          <a href="<?=site_url('request')?>"><i class="fa fa-fw fa-comment-o"></i> Request</a>
         </li>
         <?php
       } else if ($this->session->userdata('usertype') == "T") {
         ?>
         <li id="manage">
-          <a href="<?=site_url('manage')?>"><i class="fa fa-fw fa-dashboard"></i> Manage</a>
+          <a href="<?=site_url('manage')?>"><i class="fa fa-fw fa-sign-in"></i> Manage</a>
         </li>
         <?php
       }
       ?>
-      <li>
-        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-        <ul id="demo" class="collapse">
-          <li>
-            <a href="#">Dropdown Item</a>
-          </li>
-          <li>
-            <a href="#">Dropdown Item</a>
-          </li>
-        </ul>
-      </li>
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav><!-- Navigation -->

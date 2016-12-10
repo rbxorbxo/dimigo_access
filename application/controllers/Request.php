@@ -31,7 +31,7 @@ class Request extends CI_Controller {
     if ($this->form_validation->run() == FALSE) {
       $this->load->view('core/head', array('title'=>SITE_NAME." - Request"));
       $this->load->view('core/navbar');
-      $this->load->view('request/main', array('reasons'=>$this->request_model->getReason()));
+      $this->load->view('request/main', array('reasons'=>$this->request_model->getReason(), 'num'=>$this->request_model->get_num()));
       $this->load->view('core/footer', array("active"=>"request"));
     }	else {
       $reason = $this->input->post('reason');

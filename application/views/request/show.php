@@ -29,6 +29,7 @@
                 <th style="width: 55px;">외출</th>
                 <th style="width: 55px;">귀교</th>
                 <th>비고</th>
+                <th style="width: 120px;">일련번호</th>
                 <th style="width: 130px;">수정/삭제</th>
               </tr>
             </thead>
@@ -42,6 +43,7 @@
                   <td><?= $req->start_time ?></td>
                   <td><?= $req->end_time ?></td>
                   <td class="text-left"><?= $req->comment ?></td>
+                  <td><?= $req->serial ?></td>
                   <td>
                     <a href="<?= $req->status == 0 ? site_url('request/edit/'.$req->idx) : '#" onclick="return false' ?>"
                       class="btn btn-warning"

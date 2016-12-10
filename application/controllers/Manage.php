@@ -34,8 +34,6 @@ class Manage extends CI_Controller {
   public function fresh() {
     $data = $this->manage_model->getRequest('1');
 
-    print_r($data);
-
     $this->load->view('core/head', array('title'=>SITE_NAME." - Manage"));
     $this->load->view('core/navbar');
     $this->load->view('manage/fresh', array('data'=>$data));
