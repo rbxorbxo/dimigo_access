@@ -61,15 +61,15 @@ class Manage extends CI_Controller {
   }
 
   function Insert_admit($idx) {
-    $this->manage_model->Insert_data($idx, "admit","");
+    $this->manage_model->Insert_data($idx, "admit", "");
   }
 
   function Insert_reject($idx) {
-    echo $comment = $_POST['comment'];
-    $this->manage_model->Insert_data($idx, "reject",$comment);
+    $comment = $_POST['comment'];
+    $this->manage_model->Insert_data($idx, "reject", $comment);
   }
 
   function Modify_admit($idx){
-    $this->manage_model->Modify_data($idx, "reject","admit");
+    $this->manage_model->Modify_data($idx, "reject", "admit");
   }
 }
