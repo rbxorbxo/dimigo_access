@@ -157,6 +157,8 @@ class Manage_model extends CI_Model {
 
 
     }
+<<<<<<< HEAD
+=======
 
   }
 
@@ -185,5 +187,6 @@ class Manage_model extends CI_Model {
       redirect(site_url('manage'));
     }
 
+>>>>>>> master
   }
 }
