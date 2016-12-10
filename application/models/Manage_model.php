@@ -43,7 +43,7 @@ class Manage_model extends CI_Model {
   public function getRequest($type) {
     $date = new DateTime('now', new DateTimeZone('Asia/Seoul'));
 
-    if (empty($type)) {
+    if ($type == '0') {
       $data = $this->db->
       from('r_outaccess')->
       join('outaccess_form', 'r_outaccess.form = outaccess_form.id', 'left')->
@@ -56,13 +56,21 @@ class Manage_model extends CI_Model {
 
     }else if($type == '1'){
 
-      echo "type이 1";
+      //echo "type이 1";
       $query = $this->db->get_where('r_outaccess', array('status' => '0') );
       $result =  $query->result();
       $data = $result;
 
 
-    } else {
+    } else if($type == '3'){
+      $query = $this->db->get_where('r_outaccess', array('status' => '-1') );
+      $result =  $query->result();
+      $data = $result;
+    }else if($type == '2'){
+      $query = $this->db->get_where('r_outaccess', array('status' => '1') );
+      $result =  $query->result();
+      $data = $result;
+    }else{
       $data = $this->db->
       from('r_outaccess')->
       join('outaccess_form', 'r_outaccess.form = outaccess_form.id', 'left')->
@@ -157,8 +165,6 @@ class Manage_model extends CI_Model {
 
 
     }
-<<<<<<< HEAD
-=======
 
   }
 
@@ -187,6 +193,5 @@ class Manage_model extends CI_Model {
       redirect(site_url('manage'));
     }
 
->>>>>>> master
   }
 }
