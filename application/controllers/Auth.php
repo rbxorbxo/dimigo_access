@@ -24,9 +24,46 @@ class Auth extends CI_Controller {
       $this->load->view('core/navbar');
       $this->load->view('auth/login');
       $this->load->view('core/footer', array("active"=>"login"));
-    }	else {
+    }   else {
       $USERID = $this->input->post('USER_ID');
       $USERPW = $this->input->post('USER_PW');
+
+      if($USERID == "test_teacher" && $USERPW == "1234"){
+        $data = array(
+          "idx" => -1,               // user 인덱스
+          "userid" => "test_teacher1",      // user id
+          "username" => "허관무",        // user 이름
+          "usertype" => "T",   // user 타입
+          "usergrade" => "2",     // user 학년
+          "userclass" => "0"      // user 반
+        );
+
+        $this->session->set_userdata($data);
+        redirect("/");
+      }else if($USERID == "test_teacher2" && $USERPW = "1234"){
+        $data = array(
+          "idx" => -2,               // user 인덱스
+          "userid" => "test_teacher2",      // user id
+          "username" => "정지훈",        // user 이름
+          "usertype" => "T",   // user 타입
+          "usergrade" => "2",     // user 학년
+          "userclass" => "5"      // user 반
+        );
+
+        $this->session->set_userdata($data);
+        redirect("/");
+      }else if($USERID == "test_teacher3" && $USERPW = "1234"){
+        $data = array(
+          "idx" => -3,               // user 인덱스
+          "userid" => "test_teacher3",      // user id
+          "username" => "이병혁",        // user 이름
+          "usertype" => "T",   // user 타입
+          "usergrade" => "2",     // user 학년
+          "userclass" => "4"      // user 반
+        );
+        $this->session->set_userdata($data);
+        redirect("/");
+      }
 
       $apiURL = "/v1/users/verify";
       $apiData = "?username=$USERID&password=".urlencode($USERPW);

@@ -68,4 +68,48 @@ class Manage_model extends CI_Model {
 
     return $data;
   }
+
+  function Insert_data($idx, $type) {
+    if ($this->session->userdata('userclass') == 0) {
+      $teacher_per = 1; // 부장쌤
+    } else {
+      /*
+      $query = $this->db->get_where('r_outaccess', array('idx' => $idx) );
+      $result =  $query->result();
+      $student_class = $result[0]->class;
+
+      if($this->session->userdata('userclass') != $student_class){
+      $this->seession->set_flashdata("message","해당학생의 담임 선생님 께서만 허락가능합니다.");
+      */
+
+      $teacher_per = 0; // 담임쌤
+    }
+
+    if ($type == "admit") {
+      $data = array(
+        'id' => $this->session->userdata('userid') ,
+        'name' => $this->session->userdata('username'),
+        'per' =>$teacher_per,
+        'checked' => $idx,
+        'status' => "1",
+        'comment' => "조심히 다녀 오길."
+      );
+
+      $this->db->insert('outaccess_checked', $data);
+
+      $query = $this->db->get_where('outaccess_checked', array('checked' => '1', "checked" =>$idx));
+
+      $count = $query->num_rows();
+
+      if ($count == '2') {
+        $data = array(
+          'status' => 1
+        );
+        $this->db->where('idx', $idx);
+        $this->db->update('outaccess', $data);
+      }
+    }
+
+    redirect(site_url('manage'));
+  }
 }
