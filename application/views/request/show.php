@@ -7,6 +7,12 @@
       <div class="col-lg-12">
         <h1 class="page-header">
           외출 신청 현황
+          <small>
+            <?php
+            $date = new DateTime('now', new DateTimeZone('Asia/Seoul'));
+            echo $date->format('Y-m-d');
+            ?>
+          </small>
         </h1>
       </div>
     </div>
