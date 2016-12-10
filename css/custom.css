@@ -42,3 +42,7 @@ label.form-control {
 th, td {
   text-align: center;
 }
+
+ul#notice > li {
+  padding: 5px 0;
+}
