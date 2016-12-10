@@ -34,7 +34,6 @@
             <form name="manage" method="post" action="">
               <tbody>
                 <?php
-
                 foreach ($data as $req) {
                   ?>
                   <tr>
@@ -43,7 +42,7 @@
                     <td><?= $req->start_time ?></td>
                     <td><?= $req->end_time ?></td>
                     <td class="text-left"><?= $req->comment ?></td>
-                    
+
                     <?php
                     if ($req->status == 0) {
                       ?>
@@ -64,8 +63,6 @@
                     ?>
                   </tr>
 
-
-
                   <div class="modal fade" id="reject<?=$req->idx?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -75,23 +72,19 @@
                         </div>
                         <form method="post" action="<?=site_url('/manage/Insert_reject/'.$req->idx);?>">
                           <div class="modal-body">
-
                             <div class="form-group">
                               <label for="message-text" class="control-label">거부 이유:</label>
                               <input type="textarea" class="form-control" name="comment" id="comment"></textarea>
                             </div>
-
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
                             <button type="submit" class="btn btn-danger">거부</button>
-
                           </div>
                         </form>
                       </div>
                     </div>
                   </div>
-
                   <?php
                 }
                 ?>
