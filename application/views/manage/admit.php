@@ -23,10 +23,10 @@
           <table class="table table-bordered table-hover table-striped">
             <thead>
               <tr>
-                <th style="width: 100px;">승인 여부</th>
-                <th style="width: 100px;">외출 사유</th>
-                <th style="width: 80px;">외출</th>
-                <th style="width: 80px;">귀교</th>
+                <th style="width: 90px;">승인 여부</th>
+                <th style="width: 80px;">외출 사유</th>
+                <th style="width: 70px;">외출</th>
+                <th style="width: 70px;">귀교</th>
                 <th>비고</th>
               </tr>
             </thead>

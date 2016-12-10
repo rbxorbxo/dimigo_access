@@ -94,11 +94,7 @@ class Request extends CI_Controller {
     }
   }
 
-<<<<<<< HEAD
   public function delete($idx) {
-=======
-  public function delete($idx){
->>>>>>> master
     $this->request_model->delete($idx);
   }
 }

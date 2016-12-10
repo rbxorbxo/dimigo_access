@@ -23,11 +23,12 @@
           <table class="table table-bordered table-hover table-striped">
             <thead>
               <tr>
-                <th style="width: 100px;">승인 여부</th>
-                <th style="width: 100px;">외출 사유</th>
-                <th style="width: 80px;">외출</th>
-                <th style="width: 80px;">귀교</th>
+                <th style="width: 90px;">승인 여부</th>
+                <th style="width: 80px;">외출 사유</th>
+                <th style="width: 70px;">외출</th>
+                <th style="width: 70px;">귀교</th>
                 <th>비고</th>
+                <th style="width:80px;"></th>
               </tr>
             </thead>
             <tbody>
@@ -35,11 +36,12 @@
               foreach ($data as $req) {
                 ?>
                 <tr>
-                  <td>거절됨</td>
+                  <td>거부됨</td>
                   <td><?= $req->form ?></td>
                   <td><?= $req->start_time ?></td>
                   <td><?= $req->end_time ?></td>
                   <td class="text-left"><?= $req->comment ?></td>
+                  <td><button class="btn btn-danger" onclick="changeAdmit(<?=$req->idx?>)">거부됨</button></td>
                 </tr>
                 <?php
               }
@@ -51,3 +53,9 @@
     </div><!-- /.row -->
   </div><!-- /.container-fluid -->
 </div><!-- /#page-wrapper -->
+<script>
+function changeAdmit(idx) {
+  if (confirm("확인을 누르시면 외출이 승인됩니다.\n승인하시겠습니까?"))
+  location.href = "<?=site_url('manage/Modify_admit'.$req->idx)?>/" + idx;
+}
+</script>
