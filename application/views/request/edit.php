@@ -8,11 +8,6 @@
         <h1 class="page-header">
           외출 정보 수정
         </h1>
-        <ol class="breadcrumb">
-          <li class="active">
-            <i class="fa fa-dashboard"></i> Dashboard
-          </li>
-        </ol>
       </div>
     </div>
     <!-- /.row -->
@@ -43,7 +38,6 @@
           <div class="form-group">
             <h3 class="text-left">외출 사유</h3>
             <?php
-            print_r($original);
             foreach ($reasons as $reason) {
               if ($reason->id != 0) {
                 ?>
@@ -73,7 +67,7 @@
           </div>
           <div class="form-group">
             <h3 class="text-left">코멘트</h3>
-            <textarea class="form-control" name="comment" placeholder="자유롭게 작성해 주세요"><?=empty(set_value('comment')) ? $original->comment : set_value('comment')?></textarea>
+            <textarea class="form-control" name="comment" placeholder="자유롭게 작성해 주세요"><?=str_ireplace('<br>', '', empty(set_value('comment')) ? $original->comment : set_value('comment'))?></textarea>
           </div>
           <div class="form-group text-right">
             <input type="submit" class="btn btn-primary" value="수정하기">
