@@ -32,7 +32,9 @@ class Manage extends CI_Controller {
   }
 
   public function fresh() {
-    $data = $this->manage_model->getRequest(0);
+    $data = $this->manage_model->getRequest(1);
+
+    print_r($data);
 
     $this->load->view('core/head', array('title'=>SITE_NAME." - Manage"));
     $this->load->view('core/navbar');
@@ -41,7 +43,7 @@ class Manage extends CI_Controller {
   }
 
   public function admit() {
-    $data = $this->manage_model->getRequest(1);
+    $data = $this->manage_model->getRequest(2);
 
     $this->load->view('core/head', array('title'=>SITE_NAME." - Manage"));
     $this->load->view('core/navbar');
@@ -50,7 +52,7 @@ class Manage extends CI_Controller {
   }
 
   public function reject() {
-    $data = $this->manage_model->getRequest(-1);
+    $data = $this->manage_model->getRequest(3);
 
     $this->load->view('core/head', array('title'=>SITE_NAME." - Manage"));
     $this->load->view('core/navbar');

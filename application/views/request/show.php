@@ -29,7 +29,7 @@
                 <th style="width: 55px;">외출</th>
                 <th style="width: 55px;">귀교</th>
                 <th>비고</th>
-                <th style="width: 70px;">수정</th>
+                <th style="width: 130px;">수정/삭제</th>
               </tr>
             </thead>
             <tbody>
@@ -48,6 +48,9 @@
                       <?= $req->status == 0 ? "" : "disabled" ?>>
                       수정
                     </a>
+                    <a href="#" onclick="deleteRequest(<?=$req->idx?>)" class="btn btn-danger" <?= $req->status != 1 ? "" : "disabled" ?>>
+                      삭제
+                    </a>
                   </td>
                 </tr>
                 <?php
@@ -60,3 +63,9 @@
     </div><!-- /.row -->
   </div><!-- /.container-fluid -->
 </div><!-- /#page-wrapper -->
+<script>
+function deleteRequest(idx) {
+  if (confirm("정말 삭제하시겠습니까?\n삭제한 이후에는 복구가 불가능합니다."))
+  location.href = "<?=site_url('request/delete')?>/" + idx;
+}
+</script>

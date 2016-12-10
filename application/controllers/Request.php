@@ -93,4 +93,8 @@ class Request extends CI_Controller {
       $this->request_model->update($idx, $request_data);
     }
   }
+
+  public function delete($idx){
+    $this->request_model->delete($idx);
+  }
 }

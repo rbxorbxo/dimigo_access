@@ -40,7 +40,7 @@ class Manage_model extends CI_Model {
     return $num;
   }
 
-  public function getRequest($type="") {
+  public function getRequest($type) {
     $date = new DateTime('now', new DateTimeZone('Asia/Seoul'));
 
     if (empty($type)) {
@@ -53,6 +53,15 @@ class Manage_model extends CI_Model {
       order_by('idx', 'ASC')->
       get()->
       result();
+
+    }else if($type == '1'){
+
+      echo "type이 1";
+      $query = $this->db->get_where('r_outaccess', array('status' => '0') );
+      $result =  $query->result();
+      $data = $result;
+
+
     } else {
       $data = $this->db->
       from('r_outaccess')->
@@ -119,13 +128,11 @@ class Manage_model extends CI_Model {
         $this->db->update('outaccess', $data);
       }
 
-
-
-      $this->session->set_flashdata("message","외출 인증이 완료 되었습니다!");
+        $this->session->set_flashdata("message","외출 인증이 완료 되었습니다!");
 
       redirect(site_url('manage'));
 
-    }else if($type == "reject"){
+    } else if ($type == "reject") {
 
       $data = array(
         'id' => $this->session->userdata('userid') ,

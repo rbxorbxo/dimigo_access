@@ -58,6 +58,21 @@ class Request_model extends CI_Model {
     }
   }
 
+  function delete($idx) {
+    $original = $this->request_model->get($idx)[0];
+    if ($original->status == 1) {
+      $this->session->set_flashdata('message', '삭제할 수 없습니다');
+      redirect(site_url('request/show'));
+    }
+
+    $this->db->delete('outaccess', array('idx'=>$idx));
+    $this->db->delete('outaccess_checked', array('checked'=>$idx));
+    $this->db->delete('outaccess_detail', array('idx'=>$idx));
+
+    $this->session->set_flashdata('message', '삭제되었습니다');
+    redirect(site_url('request/show'));
+  }
+
   function getReason(){
     return $this->db->from('outaccess_form')->order_by('id', 'ASC')->get()->result();
   }
