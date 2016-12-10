@@ -85,14 +85,14 @@ class Manage_model extends CI_Model {
       $teacher_per = 0; // 담임쌤
     }
 
-    //같은 선생님께서 허락 두번하시는 경우 예외 처리
+    //같은 선생님께서 두번 인증하시는 경우 예외 처리
     $query = $this->db->get_where('outaccess_checked', array('checked' => $idx) );
     $result =  $query->result();
     $tearcher_name = $result[0]->name;
 
     if($this->session->userdata("username") == $tearcher_name){
-        $this->session->set_flashdata("message","두번 수락 하실수는 없습니다.");
-        redirect(site_url('manage'));
+      $this->session->set_flashdata("message","두 번 인증 하실수는 없습니다.");
+      redirect(site_url('manage'));
     }
 
     if ($type == "admit") {
@@ -119,9 +119,5 @@ class Manage_model extends CI_Model {
         $this->db->update('outaccess', $data);
       }
     }
-
-    $this->session->set_flashdata("message","외출 인증이 완료 되었습니다!");
-
-    redirect(site_url('manage'));
   }
 }

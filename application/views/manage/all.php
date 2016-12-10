@@ -49,12 +49,12 @@
                       ?>
                       <td>
                         <a class="btn btn-primary" href="<?=site_url('/manage/Insert_admit/'.$req->idx);?>">승인</a>
-                        <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#reject">거부</a>
+                        <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#reject<?=$req->idx?>">거부</a>
                       </td>
                       <?php
                     } else if ($req->status == -1) {
                       ?>
-                      <td><a class="btn btn-danger" href="#" disabled>거부됨</a></td>
+                      <td><a class="btn btn-danger" href="<?=site_url('/manage/Modify_admit/'.$req->idx);?>">거부됨</a></td>
                       <?php
                     } else {
                       ?>
@@ -63,7 +63,7 @@
                     }
                     ?>
                   </tr>
-                  <div class="modal fade" id="reject" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="reject<?=$req->idx?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -75,7 +75,7 @@
 
                             <div class="form-group">
                               <label for="message-text" class="control-label">거부 이유:</label>
-                              <textarea class="form-control" id="comment"></textarea>
+                              <input type="textarea" class="form-control" name="comment" id="comment"></textarea>
                             </div>
 
                           </div>
