@@ -45,19 +45,47 @@
       </div>
     </div><!-- /.row -->
     <?php
-    if (is_null($data)) {
+    print_r($data);
+    if ($data !== FALSE) {
       ?>
       <div class="row" style="margin-top: 50px;">
         <div class="col-lg-12">
-          <?php
-          if ($data == "") {
-            ?>
-            <h3 class="text-center">찾으시는 데이터가 존재하지 않습니다</h3>
-            <?php
-          } else {
-            echo $data;
-          }
-          ?>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+              <thead>
+                <tr>
+                  <th style="width: 70px;">이름</th>
+                  <th style="width: 90px;">승인 여부</th>
+                  <th style="width: 80px;">외출 사유</th>
+                  <th style="width: 70px;">외출</th>
+                  <th style="width: 70px;">귀교</th>
+                  <th>비고</th>
+                  <th style="width: 120px;">일련번호</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <?php
+                  if (count($data)) {
+                    ?>
+                  <td><?= $data->name ?></td>
+                  <td><?= $data->status == 1 ? "승인됨" : ($data->status == -1 ? "거부됨" : "대기중") ?></td>
+                  <td><?= $data->form ?></td>
+                  <td><?= $data->start_time ?></td>
+                  <td><?= $data->end_time ?></td>
+                  <td class="text-left"><?= $data->comment ?></td>
+                  <td><?= $data->serial ?></td>
+                  <?php
+                } else {
+                  ?>
+                  <td colspan="7" class="text-center">찾으시는 데이터가 존재하지 않습니다.</td>
+                  <?php
+                }
+                ?>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div><!-- /.row -->
       <?php

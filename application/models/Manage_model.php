@@ -123,7 +123,7 @@ class Manage_model extends CI_Model {
 
       $this->session->set_flashdata("message", "인증되었습니다.");
 
-      redirect(site_url('manage'));
+      redirect($this->input->get("prev"));
 
     } else if ($type == "reject") {
 
@@ -143,7 +143,7 @@ class Manage_model extends CI_Model {
 
       $this->session->set_flashdata("message", "거부되었습니다.");
 
-      redirect(site_url('manage'));
+      redirect($this->input->get("prev"));
     }
   }
 
@@ -155,6 +155,6 @@ class Manage_model extends CI_Model {
     $this->db->where('idx', $idx)->update('outaccess', array('status' => -1));
 
     $this->session->set_flashdata("message","변경되었습니다!");
-    redirect(site_url('manage'));
+    redirect($this->input->get("prev"));
   }
 }
