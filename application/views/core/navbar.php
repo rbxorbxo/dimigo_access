@@ -53,6 +53,17 @@
       <li id="main">
         <a href="<?=site_url('/')?>"><i class="fa fa-fw fa-tag"></i> Main Page</a>
       </li>
+      <li id="search">
+          <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
+          <ul id="demo" class="collapse">
+              <li>
+                  <a href="<?=site_url('search/serial')?>"><i class="fa fa-fw fa-sort-numeric-asc"></i> Serial</a>
+              </li>
+              <li>
+                  <a href="<?=site_url('search/name')?>"><i class="fa fa-fw fa-sort-numeric-asc"></i> Name</a>
+              </li>
+          </ul>
+      </li>
       <?php
       if ($this->session->userdata('usertype') == "S") {
         ?>
@@ -68,9 +79,6 @@
         <?php
       }
       ?>
-      <li id="serial">
-        <a href="<?=site_url('serial')?>"><i class="fa fa-fw fa-sort-numeric-asc"></i> Serial</a>
-      </li>
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav><!-- Navigation -->

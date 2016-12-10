@@ -71,8 +71,6 @@ class Auth extends CI_Controller {
       $getUserData = $this->auth_model->GETAPI($api_URL);
 
       if ($getUserData["HTTP_CODE"] == 200) {
-        $this->session->set_flashdata('message', "로그인 성공");
-
         $result = $getUserData["HTTP_RESULT"][0];
 
         $apiURL = "/v1/user-students/";
@@ -86,7 +84,8 @@ class Auth extends CI_Controller {
           "username" => $result->name,        // user 이름
           "usertype" => $result->user_type,   // user 타입
           "usergrade" => $result1->grade,     // user 학년
-          "userclass" => $result1->class      // user 반
+          "userclass" => $result1->class,     // user 반
+          "rfidcode" => $result1->rfcard_uid  // user rfid 코드
         );
 
         $this->session->set_userdata($data);

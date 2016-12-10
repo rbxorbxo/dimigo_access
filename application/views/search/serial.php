@@ -34,7 +34,7 @@
     <div class="row" style="margin-top: 50px;">
       <div class="col-lg-12">
         <h2 class="text-center" style="margin: 20px 0">조회할 번호를 입력하세요</h2>
-        <form method="post" action="<?=site_url('serial/search')?>" style="max-width: 400px;margin: 0 auto" role="form">
+        <form method="post" action="<?=site_url('search/serial')?>" style="max-width: 400px;margin: 0 auto" role="form">
           <div class="form-group">
             <input type="text" class="form-control text-center" name="serialNo" value="<?=set_value('serialNo')?>" placeholder="일련번호를 입력하세요" maxlength="">
           </div>
@@ -45,17 +45,17 @@
       </div>
     </div><!-- /.row -->
     <?php
-    if ($data != "") {
+    if (is_null($data)) {
       ?>
       <div class="row" style="margin-top: 50px;">
         <div class="col-lg-12">
           <?php
-          if ($data) {
-            echo $data;
-          } else {
+          if ($data == "") {
             ?>
             <h3 class="text-center">찾으시는 데이터가 존재하지 않습니다</h3>
             <?php
+          } else {
+            echo $data;
           }
           ?>
         </div>

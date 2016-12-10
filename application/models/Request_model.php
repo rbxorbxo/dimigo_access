@@ -21,7 +21,8 @@ class Request_model extends CI_Model {
         'id' => $this->session->userdata('idx') ,
         'name' => $this->session->userdata('username'),
         'grade' => $this->session->userdata('usergrade'),
-        'class' => $this->session->userdata('userclass')
+        'class' => $this->session->userdata('userclass'),
+        'rfid' => $this->session->userdata('rfidcode')
       );
 
       $this->db->insert('outaccess', $data);

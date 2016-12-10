@@ -28,6 +28,7 @@
                 <th style="width: 70px;">외출</th>
                 <th style="width: 70px;">귀교</th>
                 <th>비고</th>
+                <th style="width: 120px;">일련번호</th>
               </tr>
             </thead>
             <tbody>
@@ -40,6 +41,7 @@
                   <td><?= $req->start_time ?></td>
                   <td><?= $req->end_time ?></td>
                   <td class="text-left"><?= $req->comment ?></td>
+                  <td><?= $req->serial ?></td>
                 </tr>
                 <?php
               }
