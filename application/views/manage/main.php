@@ -32,7 +32,7 @@
             </div>
           </div>
           <a href="<?=site_url('manage/all')?>">
-            <div class="panel-footer" data-toggle="modal" data-target=".bs-example-modal-lg">
+            <div class="panel-footer">
               <span class="pull-left">세부사항</span>
               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
               <div class="clearfix"></div>
@@ -54,7 +54,7 @@
             </div>
           </div>
           <a href="<?=site_url('manage/fresh')?>">
-            <div class="panel-footer" data-toggle="modal" data-target=".bs-example-modal-lg">
+            <div class="panel-footer">
               <span class="pull-left">세부사항</span>
               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
               <div class="clearfix"></div>
@@ -110,38 +110,3 @@
     </div><!-- /.row -->
   </div><!-- /.container-fluid -->
 </div><!-- /#page-wrapper -->
-<!-- modal -->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">전체 보기</h4>
-      </div>
-      <div class="modal-body">
-        <table width="100%" class="modal_table" border="1" >
-          <tr align="center">
-            <td width="10%">이름</td>
-            <td>외출 사유</td>
-            <td>외출 시간</td>
-            <td>코멘트</td>
-          </tr>
-          <?php
-          foreach($data as $row){
-          ?>
-            <tr align="center">
-              <td><?=$row->name?></td>
-              <td><?=$row->form?></td>
-              <td><?=$row->start_time?>~<?=$row->end_time?></td>
-              <td><?=$row->comment?></td>
-            </tr>
-          <?php }?>
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
