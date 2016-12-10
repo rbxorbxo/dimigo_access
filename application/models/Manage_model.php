@@ -40,7 +40,7 @@ class Manage_model extends CI_Model {
     return $num;
   }
 
-  public function getRequest($type="") {
+  public function getRequest($type) {
     $date = new DateTime('now', new DateTimeZone('Asia/Seoul'));
 
     if (empty($type)) {
@@ -53,6 +53,15 @@ class Manage_model extends CI_Model {
       order_by('idx', 'ASC')->
       get()->
       result();
+
+    }else if($type == '1'){
+
+      echo "type이 1";
+      $query = $this->db->get_where('r_outaccess', array('status' => '0') );
+      $result =  $query->result();
+      $data = $result;
+
+
     } else {
       $data = $this->db->
       from('r_outaccess')->
@@ -69,7 +78,7 @@ class Manage_model extends CI_Model {
     return $data;
   }
 
-  function Insert_data($idx, $type) {
+  function Insert_data($idx, $type,$comment) {
     if ($this->session->userdata('userclass') == 0) {
       $teacher_per = 1; // 부장쌤
     } else {
@@ -118,6 +127,66 @@ class Manage_model extends CI_Model {
         $this->db->where('idx', $idx);
         $this->db->update('outaccess', $data);
       }
+
+        $this->session->set_flashdata("message","외출 인증이 완료 되었습니다!");
+
+      redirect(site_url('manage'));
+
+    } else if ($type == "reject") {
+
+      $data = array(
+        'id' => $this->session->userdata('userid') ,
+        'name' => $this->session->userdata('username'),
+        'per' =>$teacher_per,
+        'checked' => $idx,
+        'status' => "0",
+        'comment' => $comment
+      );
+
+      $this->db->insert('outaccess_checked', $data);
+
+      $data = array(
+        'status' => -1
+      );
+      $this->db->where('idx', $idx);
+      $this->db->update('outaccess', $data);
+
+      $this->session->set_flashdata("message","외출 거부가 완료 되었습니다!");
+
+      redirect(site_url('manage'));
+
+
     }
+<<<<<<< HEAD
+=======
+
+  }
+
+  function Modify_data($idx , $go , $end){
+    if($go == "reject" && $end =="admit"){
+
+      $data = array(
+        'status' => 1
+      );
+      $this->db->where('idx', $idx);
+      $this->db->update('outaccess', $data);
+
+      $this->session->set_flashdata("message","외출 신청이 변경되었습니다!");
+
+      redirect(site_url('manage'));
+
+    }else if($go == "admit" && $end =="reject"){
+      $data = array(
+        'status' => -1
+      );
+      $this->db->where('idx', $idx);
+      $this->db->update('outaccess', $data);
+
+      $this->session->set_flashdata("message","외출 신청이 변경되었습니다!");
+
+      redirect(site_url('manage'));
+    }
+
+>>>>>>> master
   }
 }

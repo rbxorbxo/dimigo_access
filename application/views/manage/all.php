@@ -43,7 +43,7 @@
                     <td><?= $req->start_time ?></td>
                     <td><?= $req->end_time ?></td>
                     <td class="text-left"><?= $req->comment ?></td>
-
+                    
                     <?php
                     if ($req->status == 0) {
                       ?>
@@ -63,6 +63,12 @@
                     }
                     ?>
                   </tr>
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> master
                   <div class="modal fade" id="reject<?=$req->idx?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">

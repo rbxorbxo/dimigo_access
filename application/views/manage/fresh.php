@@ -23,31 +23,39 @@
           <table class="table table-bordered table-hover table-striped">
             <thead>
               <tr>
-                <th style="width: 100px;">승인 여부</th>
-                <th style="width: 100px;">외출 사유</th>
-                <th style="width: 80px;">외출</th>
-                <th style="width: 80px;">귀교</th>
+                <th style="width: 90px;">승인 여부</th>
+                <th style="width: 80px;">외출 사유</th>
+                <th style="width: 70px;">외출</th>
+                <th style="width: 70px;">귀교</th>
                 <th>비고</th>
+                <th style="width:150px;"></th>
               </tr>
             </thead>
-            <tbody>
-              <?php
-              foreach ($data as $req) {
-                ?>
-                <tr>
-                  <td>대기중</td>
-                  <td><?= $req->form ?></td>
-                  <td><?= $req->start_time ?></td>
-                  <td><?= $req->end_time ?></td>
-                  <td class="text-left"><?= $req->comment ?></td>
-                </tr>
+            <form name="manage" method="post" action="">
+              <tbody>
                 <?php
-              }
-              ?>
-            </tbody>
-          </table>
+                foreach ($data as $req) {
+                  ?>
+                  <tr>
+                    <td><?= $req->status == 1 ? "승인됨" : ($req->status == -1 ? "거부됨" : "대기중") ?></td>
+                    <td><?= $req->form ?></td>
+                    <td><?= $req->start_time ?></td>
+                    <td><?= $req->end_time ?></td>
+                    <td class="text-left"><?= $req->comment ?></td>
+
+                  <td>
+                    <a class="btn btn-primary" href="<?=site_url('/manage/Insert_admit/'.$req->idx);?>">승인</a>
+                    <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#reject<?=$req->idx?>">거부</a>
+                  </td>
+                  </tr>
+                  <?php
+                }
+                ?>
+              </tbody>
+              </form>
+            </table>
+          </div>
         </div>
-      </div>
-    </div><!-- /.row -->
-  </div><!-- /.container-fluid -->
-</div><!-- /#page-wrapper -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div><!-- /#page-wrapper -->

@@ -43,6 +43,8 @@ th, td {
   text-align: center;
 }
 
-ul#notice > li {
-  padding: 5px 0;
+.toAdmit:hover{
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;  
 }
