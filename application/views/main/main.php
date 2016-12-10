@@ -13,7 +13,7 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <h2 class="text-center" style="margin: 20px 0">공지</h2>
+        <h2 class="text-center" style="margin: 20px 0">공지사항</h2>
         <ul id="notice">
           <li>
             본 시스템을 통한 외출 신청은 당일 오전 8시 ~ 오후 4시 40분까지 가능합니다.

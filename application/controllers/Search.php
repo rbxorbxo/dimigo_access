@@ -21,7 +21,7 @@ class Search extends CI_Controller {
     if ($this->form_validation->run() == FALSE) {
       $this->load->view('core/head', array('title'=>SITE_NAME." - Search"));
       $this->load->view('core/navbar');
-      $this->load->view('search/serial', array('data'=>""));
+      $this->load->view('search/serial', array('data'=>FALSE));
       $this->load->view('core/footer', array("active"=>"search"));
     } else {
       $serial = $this->input->post('serialNo');
