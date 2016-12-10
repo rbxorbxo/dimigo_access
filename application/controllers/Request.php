@@ -60,6 +60,12 @@ class Request extends CI_Controller {
   }
 
   public function edit($idx) {
+    $original = $this->request_model->get($idx)[0];
+    if ($original->status != 0) {
+      $this->session->set_flashdata('message', '수정할 수 없습니다');
+      redirect(site_url('request/show'));
+    }
+
     $this->form_validation->set_rules('reason', '외출 사유', 'trim|required');
     $this->form_validation->set_rules('start', '시작 시간', 'trim|required');
     $this->form_validation->set_rules('end', '종료 시간', 'trim|required');
@@ -69,7 +75,7 @@ class Request extends CI_Controller {
     if ($this->form_validation->run() == FALSE) {
       $this->load->view('core/head', array('title'=>SITE_NAME." - Request"));
       $this->load->view('core/navbar');
-      $this->load->view('request/edit', array('reasons'=>$this->request_model->getReason(), 'original'=>$this->request_model->get($idx)[0]));
+      $this->load->view('request/edit', array('reasons'=>$this->request_model->getReason(), 'original'=>$original));
       $this->load->view('core/footer', array("active"=>"request"));
     }	else {
       $reason = $this->input->post('reason');
