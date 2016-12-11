@@ -37,7 +37,7 @@
               foreach ($data as $req) {
                 ?>
                 <tr>
-                  <td><?= $req->status == 1 ? "승인됨" : ($req->status == -1 ? "거부됨" : "대기중") ?></td>
+                  <td><?= $req->status == 2 ? "승인됨" : ($req->status < 0 ? "거부됨" : "대기중") ?></td>
                   <td><?= $req->form ?></td>
                   <td><?= $req->start_time ?></td>
                   <td><?= $req->end_time ?></td>
@@ -45,20 +45,28 @@
                   <td><?= $req->serial ?></td>
 
                   <?php
-                  if ($req->status == 0) {
+                  if ($req->status < 0) {
+                    ?>
+                    <td><button class="btn btn-danger" onclick="changeAdmit(<?=$req->idx?>)">거부됨</button></td>
+                    <?php
+                  } else if ($req->status == 0 && $this->session->userdata('userclass') == 0) {
+                    ?>
+                    <td><a class="btn btn-success" href="#" disabled>대기중</a></td>
+                    <?php
+                  } else if ($req->status == 2) {
+                    ?>
+                    <td><a class="btn btn-primary" href="#" disabled>승인됨</a></td>
+                    <?php
+                  } else if ($req->status == 1 && $this->session->userdata('userclass') != 0) {
+                    ?>
+                    <td><a class="btn btn-primary" href="#" disabled>승인됨</a></td>
+                    <?php
+                  } else {
                     ?>
                     <td>
                       <a class="btn btn-primary" href="<?=site_url('/manage/Insert_admit/'.$req->idx.'?prev='.current_url());?>">승인</a>
                       <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#reject<?=$req->idx?>">거부</a>
                     </td>
-                    <?php
-                  } else if ($req->status == -1) {
-                    ?>
-                    <td><button class="btn btn-danger" onclick="changeAdmit(<?=$req->idx?>)">거부됨</button></td>
-                    <?php
-                  } else {
-                    ?>
-                    <td><a class="btn btn-primary" href="#" disabled>승인됨</a></td>
                     <?php
                   }
                   ?>

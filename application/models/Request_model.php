@@ -70,7 +70,6 @@ class Request_model extends CI_Model {
       $this->session->set_flashdata('message', '삭제할 수 없습니다');
     } else {
       $this->db->delete('outaccess', array('idx'=>$idx));
-      $this->db->delete('outaccess_checked', array('idx'=>$idx));
       $this->db->delete('outaccess_detail', array('idx'=>$idx));
 
       $this->session->set_flashdata('message', '삭제되었습니다');

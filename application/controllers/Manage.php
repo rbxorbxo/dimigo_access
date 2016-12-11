@@ -59,7 +59,7 @@ class Manage extends CI_Controller {
   }
 
   function Insert_admit($idx) {
-    $this->manage_model->Insert_data($idx, "admit", "");
+    $this->manage_model->Insert_data($idx, "admit");
   }
 
   function Insert_reject($idx) {
