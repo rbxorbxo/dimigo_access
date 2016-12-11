@@ -6,6 +6,7 @@ class Search extends CI_Controller {
     parent::__construct();
     $this->output->delete_cache();
     $this->load->model('search_model');
+    $this->load->library('form_validation');
   }
 
   public function index() {
@@ -14,36 +15,34 @@ class Search extends CI_Controller {
   }
 
   public function serial() {
-    $this->load->library('form_validation');
-
     $this->form_validation->set_rules('serialNo', '일련번호', 'trim|required');
 
+    $this->load->view('core/head', array('title'=>SITE_NAME." - Search"));
+    $this->load->view('core/navbar');
+
     if ($this->form_validation->run() == FALSE) {
-      $this->load->view('core/head', array('title'=>SITE_NAME." - Search"));
-      $this->load->view('core/navbar');
-      $this->load->view('search/serial', array('data'=>FALSE));
-      $this->load->view('core/footer', array("active"=>"search"));
+      $data = FALSE;
     } else {
       $serial = $this->input->post('serialNo');
-      $result = $this->search_model->get_serial($serial);
-      print_r($result);
+      $data = $this->search_model->get_serial($serial);
     }
+    $this->load->view('search/serial', array('data'=>$data));
+    $this->load->view('core/footer', array("active"=>"search"));
   }
 
   public function name() {
-    $this->load->library('form_validation');
-
     $this->form_validation->set_rules('name', '이름', 'trim|required');
 
+    $this->load->view('core/head', array('title'=>SITE_NAME." - Search"));
+    $this->load->view('core/navbar');
+
     if ($this->form_validation->run() == FALSE) {
-      $this->load->view('core/head', array('title'=>SITE_NAME." - Search"));
-      $this->load->view('core/navbar');
-      $this->load->view('search/name', array('data'=>FALSE));
-      $this->load->view('core/footer', array("active"=>"search"));
+      $data = FALSE;
     } else {
       $name = $this->input->post('name');
-      $result = $this->search_model->get_name($name);
-      print_r($result);
+      $data = $this->search_model->get_name($name);
     }
+    $this->load->view('search/name', array('data'=>$data));
+    $this->load->view('core/footer', array("active"=>"search"));
   }
 }

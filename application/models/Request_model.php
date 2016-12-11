@@ -18,7 +18,7 @@ class Request_model extends CI_Model {
 
     if (!empty($request_data)) {
       $data = array(
-        'id' => $this->session->userdata('idx') ,
+        'user_idx' => $this->session->userdata('idx') ,
         'name' => $this->session->userdata('username'),
         'grade' => $this->session->userdata('usergrade'),
         'class' => $this->session->userdata('userclass'),
@@ -68,19 +68,18 @@ class Request_model extends CI_Model {
     $original = $this->request_model->get($idx)[0];
     if ($original->status == 1) {
       $this->session->set_flashdata('message', '삭제할 수 없습니다');
-      redirect(site_url('request/show'));
+    } else {
+      $this->db->delete('outaccess', array('idx'=>$idx));
+      $this->db->delete('outaccess_checked', array('idx'=>$idx));
+      $this->db->delete('outaccess_detail', array('idx'=>$idx));
+
+      $this->session->set_flashdata('message', '삭제되었습니다');
     }
-
-    $this->db->delete('outaccess', array('idx'=>$idx));
-    $this->db->delete('outaccess_checked', array('checked'=>$idx));
-    $this->db->delete('outaccess_detail', array('idx'=>$idx));
-
-    $this->session->set_flashdata('message', '삭제되었습니다');
     redirect(site_url('request/show'));
   }
 
   function getReason(){
-    return $this->db->from('outaccess_form')->order_by('id', 'ASC')->get()->result();
+    return $this->db->from('outaccess_form')->order_by('form_idx', 'ASC')->get()->result();
   }
 
   public function get($idx="") {
@@ -88,20 +87,20 @@ class Request_model extends CI_Model {
     if (empty($idx)) {
       return $this->db->
       from('r_outaccess')->
-      join('outaccess_form', 'r_outaccess.form = outaccess_form.id', 'left')->
+      join('outaccess_form', 'r_outaccess.form = outaccess_form.form_idx', 'left')->
       like('r_outaccess.submit_time', $date->format('Y-m-d'), 'after')->
-      where(array('r_outaccess.id'=>$this->session->userdata('idx')))->
+      where(array('r_outaccess.user_idx'=>$this->session->userdata('idx')))->
       order_by('start_time', 'ASC')->
       order_by('end_time', 'ASC')->
-      order_by('idx', 'ASC')->
+      order_by('r_outaccess.idx', 'ASC')->
       get()->
       result();
     } else {
       return $this->db->
       from('r_outaccess')->
-      join('outaccess_form', 'r_outaccess.form = outaccess_form.id', 'left')->
+      join('outaccess_form', 'r_outaccess.form = outaccess_form.form_idx', 'left')->
       like('r_outaccess.submit_time', $date->format('Y-m-d'), 'after')->
-      where(array('r_outaccess.id'=>$this->session->userdata('idx'), 'idx'=>$idx))->
+      where(array('r_outaccess.user_idx'=>$this->session->userdata('idx'), 'r_outaccess.idx'=>$idx))->
       get()->
       result();
     }
@@ -112,7 +111,7 @@ class Request_model extends CI_Model {
     return $this->db->
     from('r_outaccess')->
     like('submit_time', $date->format('Y-m-d'), 'after')->
-    where(array('id'=>$this->session->userdata('idx')))->
+    where(array('user_idx'=>$this->session->userdata('idx')))->
     count_all_results();
   }
 }
