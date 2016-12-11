@@ -9,7 +9,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="/">Dimigo Access</a>
+    <a class="navbar-brand" href="<?=site_url('/')?>">Dimigo Access</a>
   </div>
 
   <!-- Top Menu Items -->

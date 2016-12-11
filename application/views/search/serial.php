@@ -45,7 +45,6 @@
       </div>
     </div><!-- /.row -->
     <?php
-    print_r($data);
     if ($data !== FALSE) {
       ?>
       <div class="row" style="margin-top: 50px;">

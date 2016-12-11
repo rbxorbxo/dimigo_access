@@ -45,7 +45,6 @@
       </div>
     </div><!-- /.row -->
     <?php
-    var_dump($data);
     if ($data !== FALSE) {
       if (count($data) == 0) {
         ?>
