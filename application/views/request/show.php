@@ -38,7 +38,7 @@
               foreach ($requests as $req) {
                 ?>
                 <tr>
-                  <td><?= $req->status == 1 ? "승인됨" : ($req->status == -1 ? "거절됨" : "대기중") ?></td>
+                  <td><?= $req->status == 1 ? "승인됨" : ($req->status == -1 ? "거부됨" : "대기중") ?></td>
                   <td><?= $req->form ?></td>
                   <td><?= $req->start_time ?></td>
                   <td><?= $req->end_time ?></td>

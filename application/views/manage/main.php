@@ -71,7 +71,7 @@
               </div>
               <div class="col-xs-9 text-right">
                 <div class="huge"><?=$num['reject']?></div>
-                <div>거절된 외출</div>
+                <div>거부된 외출</div>
               </div>
             </div>
           </div>
