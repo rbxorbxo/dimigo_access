@@ -25,7 +25,7 @@ class Request extends CI_Controller {
     $this->form_validation->set_rules('reason', '외출 사유', 'trim|required');
     $this->form_validation->set_rules('start', '시작 시간', 'trim|required');
     $this->form_validation->set_rules('end', '종료 시간', 'trim|required');
-    if ($this->input->post('reason') == 0) $this->form_validation->set_rules('comment', '코멘트', 'trim|required');
+    if ($this->input->post('reason') == 1) $this->form_validation->set_rules('comment', '코멘트', 'trim|required');
     else $this->form_validation->set_rules('comment', '코멘트', 'trim');
 
     if ($this->form_validation->run() == FALSE) {
@@ -69,7 +69,7 @@ class Request extends CI_Controller {
     $this->form_validation->set_rules('reason', '외출 사유', 'trim|required');
     $this->form_validation->set_rules('start', '시작 시간', 'trim|required');
     $this->form_validation->set_rules('end', '종료 시간', 'trim|required');
-    if ($this->input->post('reason') == 0) $this->form_validation->set_rules('comment', '코멘트', 'trim|required');
+    if ($this->input->post('reason') == 1) $this->form_validation->set_rules('comment', '코멘트', 'trim|required');
     else $this->form_validation->set_rules('comment', '코멘트', 'trim');
 
     if ($this->form_validation->run() == FALSE) {

@@ -58,6 +58,6 @@
 <script>
 function changeAdmit(idx) {
   if (confirm("확인을 누르시면 외출이 승인됩니다.\n승인하시겠습니까?"))
-  location.href = "<?=site_url('manage/Modify_admit'.$req->idx)?>/" + idx;
+  location.href = "<?=site_url('manage/Modify_admit')?>/" + idx + "?prev=<?=current_url()?>";
 }
 </script>

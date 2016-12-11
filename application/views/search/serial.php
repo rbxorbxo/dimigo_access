@@ -60,7 +60,6 @@
                   <th style="width: 70px;">외출</th>
                   <th style="width: 70px;">귀교</th>
                   <th>비고</th>
-                  <th style="width: 120px;">일련번호</th>
                 </tr>
               </thead>
               <tbody>
@@ -74,11 +73,10 @@
                   <td><?= $data->start_time ?></td>
                   <td><?= $data->end_time ?></td>
                   <td class="text-left"><?= $data->comment ?></td>
-                  <td><?= $data->serial ?></td>
                   <?php
                 } else {
                   ?>
-                  <td colspan="7" class="text-center">찾으시는 데이터가 존재하지 않습니다.</td>
+                  <td colspan="6" class="text-center">찾으시는 데이터가 존재하지 않습니다.</td>
                   <?php
                 }
                 ?>

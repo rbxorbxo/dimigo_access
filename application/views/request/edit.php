@@ -39,17 +39,17 @@
             <h3 class="text-left">외출 사유</h3>
             <?php
             foreach ($reasons as $reason) {
-              if ($reason->id != 0) {
+              if ($reason->form_idx != 1) {
                 ?>
                 <label class="form-group form-control">
-                  <input type="radio" name="reason" value="<?=$reason->id?>" <?= $reason->form == $original->form ? "checked" : "" ?>> <?=$reason->form?>
+                  <input type="radio" name="reason" value="<?=$reason->form_idx?>" <?= $reason->form == $original->form ? "checked" : "" ?>> <?=$reason->form?>
                 </label>
                 <?php
               }
             }
             ?>
             <label class="form-group form-control">
-              <input type="radio" name="reason" value="0" <?= $original->form == "기타" ? "checked" : "" ?>> 기타
+              <input type="radio" name="reason" value="1" <?= $original->form == "기타" ? "checked" : "" ?>> 기타
             </label>
           </div>
           <div class="form-group">

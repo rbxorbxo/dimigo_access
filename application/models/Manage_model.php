@@ -43,103 +43,67 @@ class Manage_model extends CI_Model {
   public function getRequest($type) {
     $date = new DateTime('now', new DateTimeZone('Asia/Seoul'));
 
-    if ($type == '0') {
-      $data = $this->db->
-      from('r_outaccess')->
-      join('outaccess_form', 'r_outaccess.form = outaccess_form.id', 'left')->
-      like('submit_time', $date->format('Y-m-d'), 'after')->
-      order_by('start_time', 'ASC')->
-      order_by('end_time', 'ASC')->
-      order_by('idx', 'ASC')->
-      get()->
-      result();
-    } else if ($type == '1') {
-      $data = $this->db->
-      from('r_outaccess')->
-      join('outaccess_form', 'r_outaccess.form = outaccess_form.id', 'left')->
-      like('submit_time', $date->format('Y-m-d'), 'after')->
-      where(array('status'=>0))->
-      order_by('start_time', 'ASC')->
-      order_by('end_time', 'ASC')->
-      order_by('idx', 'ASC')->
-      get()->
-      result();
+    $this->db
+    ->from('r_outaccess')
+    ->join('outaccess_form', 'r_outaccess.form = outaccess_form.form_idx', 'left')
+    ->like('submit_time', $date->format('Y-m-d'), 'after');
+
+    if ($type == '1') {
+      $this->db->where(array('status' => 0));
     } else if ($type == '2') {
-      $data = $this->db->
-      from('r_outaccess')->
-      join('outaccess_form', 'r_outaccess.form = outaccess_form.id', 'left')->
-      like('submit_time', $date->format('Y-m-d'), 'after')->
-      where(array('status'=>1))->
-      order_by('start_time', 'ASC')->
-      order_by('end_time', 'ASC')->
-      order_by('idx', 'ASC')->
-      get()->
-      result();
+      $this->db->where(array('status' => 1));
     } else if ($type == '3') {
-      $data = $this->db->
-      from('r_outaccess')->
-      join('outaccess_form', 'r_outaccess.form = outaccess_form.id', 'left')->
-      like('submit_time', $date->format('Y-m-d'), 'after')->
-      where(array('status'=>-1))->
-      order_by('start_time', 'ASC')->
-      order_by('end_time', 'ASC')->
-      order_by('idx', 'ASC')->
-      get()->
-      result();
+      $this->db->where(array('status' => -1));
     }
-    return $data;
+
+    return $this->db->order_by('start_time', 'ASC')
+    ->order_by('end_time', 'ASC')
+    ->order_by('idx', 'ASC')
+    ->get()
+    ->result();
   }
 
   function Insert_data($idx, $type, $comment) {
-    if ($this->session->userdata('userclass') == 0) {
-      $teacher_per = 1; // 부장쌤
-    } else {
-      $teacher_per = 0; // 담임쌤
-    }
+    $teacher_per = $this->session->userdata('userclass') ? 0 : 1;     // 1: 부장, 0: 담임
 
     //같은 선생님께서 두 번 승인하시는 경우 예외 처리
-    $teacher_name = $this->db->get_where('outaccess_checked', array('checked' => $idx))->row();
+    $teacher_name = $this->db->get_where('outaccess_checked', array('idx' => $idx))->row();
 
-    if (!empty($teacher_name) && $this->session->userdata("username") == $teacher_name) {
+    if (!empty($teacher_name) && $this->session->userdata("idx") == $teacher_name->teacher_idx) {
       $this->session->set_flashdata("message","이미 승인하셨습니다.");
-      redirect(site_url('manage'));
+      redirect($this->input->get("prev"));
     }
 
     if ($type == "admit") {
       $data = array(
-        'id' => $this->session->userdata('userid') ,
+        'teacher_idx' => $this->session->userdata('idx'),
         'name' => $this->session->userdata('username'),
         'per' => $teacher_per,
-        'checked' => $idx,
+        'idx' => $idx,
         'status' => "1"
       );
 
       $this->db->insert('outaccess_checked', $data);
 
-      $count = $this->db->get_where('outaccess_checked', array('checked' => '1', "checked" =>$idx))->num_rows();
+      $count = $this->db->get_where('outaccess_checked', array("idx" =>$idx))->num_rows();
 
       if ($count == '2')
       $this->db->where('idx', $idx)->update('outaccess', array('status' => 1));
 
       $this->session->set_flashdata("message", "인증되었습니다.");
-
       redirect($this->input->get("prev"));
-
     } else if ($type == "reject") {
-
       $data = array(
-        'id' => $this->session->userdata('userid') ,
+        'teacher_idx' => $this->session->userdata('idx'),
         'name' => $this->session->userdata('username'),
         'per' =>$teacher_per,
-        'checked' => $idx,
+        'idx' => $idx,
         'status' => "0",
-        'comment' => $comment
+        't_comment' => $comment
       );
 
       $this->db->insert('outaccess_checked', $data);
-
-      $this->db->where('idx', $idx);
-      $this->db->update('outaccess', array('status' => -1));
+      $this->db->where('idx', $idx)->update('outaccess', array('status' => -1));
 
       $this->session->set_flashdata("message", "거부되었습니다.");
 
@@ -148,8 +112,9 @@ class Manage_model extends CI_Model {
   }
 
   function Modify_data($idx , $go , $end){
-    if($go == "reject" && $end =="admit")
-    $this->db->where('idx', $idx)->update('outaccess', array('status' => 1));
+    if($go == "reject" && $end =="admit") {
+      $this->db->where('idx', $idx)->update('outaccess', array('status' => 1));
+    }
 
     else if ($go == "admit" && $end =="reject")
     $this->db->where('idx', $idx)->update('outaccess', array('status' => -1));

@@ -12,20 +12,20 @@ class Search_model extends CI_Model {
   }
 
   function get_serial($serial){
-    $data = $this->db->get_where('r_outaccess', array('serial'=>$serial))->row();
-
-    $this->load->view('core/head', array('title'=>SITE_NAME." - Search"));
-    $this->load->view('core/navbar');
-    $this->load->view('search/serial', array('data'=>$data));
-    $this->load->view('core/footer', array("active"=>"search"));
+    $date = new DateTime('now', new DateTimeZone('Asia/Seoul'));
+    return $this->db->from('r_outaccess')
+    ->join('outaccess_form', 'r_outaccess.form = outaccess_form.form_idx', 'left')
+    ->like('r_outaccess.submit_time', $date->format('Y-m-d'), 'after')
+    ->where(array('serial'=>$serial))
+    ->get()->row();
   }
 
   function get_name($name){
-    $data = $this->db->from('r_outaccess')->like('name', $name, 'both')->get()->result();
-
-    $this->load->view('core/head', array('title'=>SITE_NAME." - Search"));
-    $this->load->view('core/navbar');
-    $this->load->view('search/name', array('data'=>$data));
-    $this->load->view('core/footer', array("active"=>"search"));
+    $date = new DateTime('now', new DateTimeZone('Asia/Seoul'));
+    return $this->db->from('r_outaccess')
+    ->join('outaccess_form', 'r_outaccess.form = outaccess_form.form_idx', 'left')
+    ->like('r_outaccess.submit_time', $date->format('Y-m-d'), 'after')
+    ->like('name', $name, 'both')
+    ->get()->result();
   }
 }
