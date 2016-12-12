@@ -1,84 +1,61 @@
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<!-- Header -->
+<div id="header">
 
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="<?=site_url('/')?>">Dimigo Access</a>
-  </div>
-
-  <!-- Top Menu Items -->
-  <ul class="nav navbar-right top-nav">
+  <div class="top">
 
     <?php
-    if (!empty($this->session->userdata('userid'))) {
+    if (empty($this->session->userdata('userid'))) {
       ?>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?=$this->session->userdata('username')?> <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li>
-            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a href="<?=site_url('auth/logout')?>"><i class="fa fa-fw fa-power-off"></i> Logout</a>
-          </li>
-        </ul>
-      </li>
+      <div id="logo">
+        <span class="image avatar48"><img src="/assets/images/avatar.jpg"></span>
+        <h1 id="title"><a href="<?=site_url('auth/login')?>">로그인</a></h1>
+
+      </div>
       <?php
     } else {
       ?>
-      <li class="dropdown" id="login">
-        <a href="<?=site_url('auth/login')?>"><i class="fa fa-fw fa-user"></i> Login</a>
-      </li>
+      <div id="logo">
+        <span class="image avatar48"><img src="/assets/images/avatar.jpg"></span>
+        <h1 id="title"><?=$this->session->userdata('username')?></h1>
+        <p><a href="<?=site_url('auth/logout')?>">로그아웃</a></p>
+      </div>
       <?php
     }
     ?>
-  </ul>
 
-  <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav side-nav">
-      <li id="main">
-        <a href="<?=site_url('/')?>"><i class="fa fa-fw fa-tag"></i> Main Page</a>
-      </li>
-      <li id="search">
-          <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
-          <ul id="demo" class="collapse">
-              <li>
-                  <a href="<?=site_url('search/serial')?>"><i class="fa fa-fw fa-sort-numeric-asc"></i> Serial</a>
-              </li>
-              <li>
-                  <a href="<?=site_url('search/name')?>"><i class="fa fa-fw fa-sort-numeric-asc"></i> Name</a>
-              </li>
-          </ul>
-      </li>
+    <!-- Nav -->
+    <nav id="nav">
+    <ul>
+      <li id="mainpage"><a href="<?=site_url('/')?>"><span class="icon fa-tag">Main Page</span></a></li>
       <?php
       if ($this->session->userdata('usertype') == "S") {
         ?>
-        <li id="request">
-          <a href="<?=site_url('request')?>"><i class="fa fa-fw fa-comment-o"></i> Request</a>
-        </li>
+        <li id="request"><a href="<?=site_url('request')?>"><span class="icon fa-comment-o">Request</span></a></li>
         <?php
       } else if ($this->session->userdata('usertype') == "T") {
         ?>
-        <li id="manage">
-          <a href="<?=site_url('manage')?>"><i class="fa fa-fw fa-sign-in"></i> Manage</a>
-        </li>
+        <li id="manage"><a href="<?=site_url('manage')?>"><span class="icon fa-sign-in">Manage</span></a></li>
         <?php
       }
       ?>
+      <li id="search_serial"><a href="<?=site_url('search/serial')?>"><span class="icon fa-sort-numeric-asc">Search - Serial</span></a></li>
+      <li id="search_name"><a href="<?=site_url('search/name')?>"><span class="icon fa-sort-numeric-asc">Search - Name</span></a></li>
     </ul>
-  </div><!-- /.navbar-collapse -->
-</nav><!-- Navigation -->
+  </nav>
+
+</div>
+
+<div class="bottom">
+
+  <!-- Social Icons -->
+  <ul class="icons">
+    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+    <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+    <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+    <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+  </ul>
+
+</div>
+
+</div>

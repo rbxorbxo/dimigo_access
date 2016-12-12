@@ -1,21 +1,24 @@
-<div id="page-wrapper">
+<div id="main">
 
-  <div class="container-fluid">
+  <section class="two">
+    <div class="container">
 
-    <!-- Page Heading -->
-    <div class="row">
-      <div class="col-lg-12">
-        <h1 class="page-header">
+      <header>
+        <h2 class="text-left" style="padding-left: 10px; padding-right: 10px;">
           외출 신청 현황
-        </h1>
-        <ol class="breadcrumb">
-          <li class="active">
-            <i class="fa fa-dashboard"></i> Dashboard
-          </li>
-        </ol>
-      </div>
+          <small>
+            <?php
+            $date = new DateTime('now', new DateTimeZone('Asia/Seoul'));
+            echo $date->format('Y-m-d');
+            ?>
+          </small>
+        </h2>
+      </header>
+
     </div>
-    <!-- /.row -->
+  </section>
+
+  <div class="container">
 
     <div class="row">
       <div class="col-lg-12">
@@ -79,6 +82,6 @@
           </table>
         </div>
       </div>
-    </div><!-- /.row -->
-  </div><!-- /.container-fluid -->
-</div><!-- /#page-wrapper -->
+    </div>
+  </div>
+</div>

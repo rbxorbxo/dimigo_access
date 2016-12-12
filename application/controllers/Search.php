@@ -27,7 +27,7 @@ class Search extends CI_Controller {
       $data = $this->search_model->get_serial($serial);
     }
     $this->load->view('search/serial', array('data'=>$data));
-    $this->load->view('core/footer', array("active"=>"search"));
+    $this->load->view('core/footer', array("active"=>"search_serial"));
   }
 
   public function name() {
@@ -43,6 +43,6 @@ class Search extends CI_Controller {
       $data = $this->search_model->get_name($name);
     }
     $this->load->view('search/name', array('data'=>$data));
-    $this->load->view('core/footer', array("active"=>"search"));
+    $this->load->view('core/footer', array("active"=>"search_name"));
   }
 }
