@@ -38,7 +38,7 @@
               foreach ($requests as $req) {
                 ?>
                 <tr>
-                  <td><?= $req->status == 1 ? "승인됨" : ($req->status == -1 ? "거부됨" : "대기중") ?></td>
+                  <td><?= $req->status == 2 ? "승인됨" : ($req->status < 0 ? "거부됨" : "대기중") ?></td>
                   <td><?= $req->form ?></td>
                   <td><?= $req->start_time ?></td>
                   <td><?= $req->end_time ?></td>
@@ -47,10 +47,10 @@
                   <td>
                     <a href="<?= $req->status == 0 ? site_url('request/edit/'.$req->idx) : '#" onclick="return false' ?>"
                       class="btn btn-warning"
-                      <?= $req->status == 0 ? "" : "disabled" ?>>
+                      <?= $req->status > 0 ? "disabled" : "" ?>>
                       수정
                     </a>
-                    <a href="#" onclick="deleteRequest(<?=$req->idx?>)" class="btn btn-danger" <?= $req->status != 1 ? "" : "disabled" ?>>
+                    <a href="#" onclick="deleteRequest(<?=$req->idx?>)" class="btn btn-danger" <?= $req->status == 2 ? "disabled" : "" ?>>
                       삭제
                     </a>
                   </td>
