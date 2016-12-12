@@ -8,9 +8,12 @@ class Request extends CI_Controller {
     $this->load->library('form_validation');
     $this->load->model('request_model');
 
-    if ($this->session->userdata('usertype') != "S") {
+    if (empty($this->session->userdata('userid'))) {
       $this->session->set_flashdata('message', '학생 전용 페이지입니다');
-      redirect("/");
+      redirect(site_url("auth/login"));
+    } else if ($this->session->userdata('usertype') != "S") {
+      $this->session->set_flashdata('message', '학생 전용 페이지입니다');
+      redirect(site_url("/"));
     }
   }
 

@@ -1,21 +1,24 @@
-<div id="page-wrapper">
+<div id="main">
+
+  <section class="two">
+    <div class="container">
+
+      <header>
+        <h2 class="text-left" style="padding-left: 10px; padding-right: 10px;">
+          외출 신청 현황
+          <small>
+            <?php
+            $date = new DateTime('now', new DateTimeZone('Asia/Seoul'));
+            echo $date->format('Y-m-d');
+            ?>
+          </small>
+        </h2>
+      </header>
+
+    </div>
+  </section>
 
   <div class="container-fluid">
-
-    <!-- Page Heading -->
-    <div class="row">
-      <div class="col-lg-12">
-        <h1 class="page-header">
-          외출 신청 현황
-        </h1>
-        <ol class="breadcrumb">
-          <li class="active">
-            <i class="fa fa-dashboard"></i> Dashboard
-          </li>
-        </ol>
-      </div>
-    </div>
-    <!-- /.row -->
 
     <div class="row">
       <div class="col-lg-12">
@@ -51,15 +54,15 @@
                     <?php
                   } else if ($req->status == 0 && $this->session->userdata('userclass') == 0) {
                     ?>
-                    <td><a class="btn btn-success" href="#" disabled>대기중</a></td>
+                    <td><a class="btn btn-success" href="#" onclick="return false" disabled>대기중</a></td>
                     <?php
                   } else if ($req->status == 2) {
                     ?>
-                    <td><a class="btn btn-primary" href="#" disabled>승인됨</a></td>
+                    <td><a class="btn btn-primary" href="#" onclick="return false" disabled>승인됨</a></td>
                     <?php
                   } else if ($req->status == 1 && $this->session->userdata('userclass') != 0) {
                     ?>
-                    <td><a class="btn btn-primary" href="#" disabled>승인됨</a></td>
+                    <td><a class="btn btn-primary" href="#" onclick="return false" disabled>승인됨</a></td>
                     <?php
                   } else {
                     ?>

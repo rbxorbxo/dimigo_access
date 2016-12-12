@@ -1,26 +1,34 @@
-<div id="page-wrapper">
-  <div class="container-fluid">
+<div id="main">
 
-    <!-- Page Heading -->
-    <div class="row">
-      <div class="col-lg-12">
-        <h1 class="page-header">
+  <section class="two">
+    <div class="container">
+
+      <header>
+        <h2 class="text-left" style="padding-left: 10px; padding-right: 10px;">
           외출 조회
-        </h1>
-      </div>
+          <small>
+            <?php
+            $date = new DateTime('now', new DateTimeZone('Asia/Seoul'));
+            echo $date->format('Y-m-d');
+            ?>
+          </small>
+        </h2>
+      </header>
+
     </div>
-    <!-- /.row -->
+  </section>
+
+  <div class="container-fluid">
 
     <!-- If form_valdation error exists, display it here -->
     <div class="row">
-      <div class="col-lg-12">
+      <div style="display: block; padding: 0;float:none; clear: both;">
         <?php
         $err = explode("\n", preg_replace("/<\/*p>/", "", validation_errors()));
         for ($i = 0; $i < count($err); $i++) {
           if ($err[$i]) {
             ?>
-            <div class="alert alert-info alert-dismissable">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div class="alert alert-info">
               <i class="fa fa-info-circle"></i>
               <?=$err[$i]?>
             </div>
@@ -31,7 +39,7 @@
       </div>
     </div><!-- /.row -->
 
-    <div class="row" style="margin-top: 50px;">
+    <div class="row">
       <div class="col-lg-12">
         <h2 class="text-center" style="margin: 20px 0">조회할 이름을 입력하세요</h2>
         <form method="post" action="<?=site_url('search/name')?>" style="max-width: 400px;margin: 0 auto" role="form">

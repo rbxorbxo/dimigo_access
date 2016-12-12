@@ -1,11 +1,10 @@
-<div id="page-wrapper">
+<div id="main">
 
-  <div class="container-fluid">
+  <section class="two">
+    <div class="container">
 
-    <!-- Page Heading -->
-    <div class="row">
-      <div class="col-lg-12">
-        <h1 class="page-header">
+      <header>
+        <h2 class="text-left" style="padding-left: 10px; padding-right: 10px;">
           외출 신청 현황
           <small>
             <?php
@@ -13,10 +12,13 @@
             echo $date->format('Y-m-d');
             ?>
           </small>
-        </h1>
-      </div>
+        </h2>
+      </header>
+
     </div>
-    <!-- /.row -->
+  </section>
+
+  <div class="container-fluid">
 
     <div class="row">
       <div class="col-lg-12">
@@ -24,8 +26,8 @@
           <table class="table table-bordered table-hover table-striped">
             <thead>
               <tr>
-                <th style="width: 70px;">승인 여부</th>
-                <th style="width: 70px;">외출 사유</th>
+                <th style="width: 80px;">승인 여부</th>
+                <th style="width: 80px;">외출 사유</th>
                 <th style="width: 55px;">외출</th>
                 <th style="width: 55px;">귀교</th>
                 <th>비고</th>
@@ -47,10 +49,11 @@
                   <td>
                     <a href="<?= $req->status == 0 ? site_url('request/edit/'.$req->idx) : '#" onclick="return false' ?>"
                       class="btn btn-warning"
-                      <?= $req->status > 0 ? "disabled" : "" ?>>
+                      <?= $req->status != 0 ? "disabled" : "" ?>>
                       수정
                     </a>
-                    <a href="#" onclick="deleteRequest(<?=$req->idx?>)" class="btn btn-danger" <?= $req->status == 2 ? "disabled" : "" ?>>
+                    <a href="#" onclick="deleteRequest(<?=$req->idx?>)" class="btn btn-danger"
+                      <?= $req->status > 0 ? "disabled" : "" ?>>
                       삭제
                     </a>
                   </td>

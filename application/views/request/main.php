@@ -1,16 +1,16 @@
-<div id="page-wrapper">
+<div id="main">
+
+  <section class="two">
+    <div class="container">
+
+      <header>
+        <h2 class="text-left" style="padding-left: 10px; padding-right: 10px;">외출 신청</h2>
+      </header>
+
+    </div>
+  </section>
 
   <div class="container-fluid">
-
-    <!-- Page Heading -->
-    <div class="row">
-      <div class="col-lg-12">
-        <h1 class="page-header">
-          외출 신청
-        </h1>
-      </div>
-    </div>
-    <!-- /.row -->
 
     <div class="row">
       <div class="col-lg-12">
@@ -36,16 +36,19 @@
         </div>
       </div>
     </div><!-- /.row -->
+  </div>
 
-    <!-- Page Heading -->
-    <div class="row">
-      <div class="col-lg-12">
-        <h1 class="page-header">
-          신청하기
-        </h1>
-      </div>
+  <section class="two">
+    <div class="container">
+
+      <header>
+        <h2 class="text-left" style="padding-left: 10px; padding-right: 10px;">신청하기</h2>
+      </header>
+
     </div>
-    <!-- /.row -->
+  </section>
+
+  <div class="container-fluid">
 
     <!-- If form_valdation error exists, display it here -->
     <div class="row">
@@ -89,13 +92,13 @@
           </div>
           <div class="form-group">
             <h3 class="text-left">외출 시간</h3>
-            <div class="col-sm-5" style="padding-left: 0">
+            <div class="col-sm-5" style="padding: 0">
               <input type="time" class="form-control" name="start" value="<?=empty(set_value('start')) ? "18:30" : set_value('start')?>">
             </div>
             <div class="col-sm-2 text-center">
               ~
             </div>
-            <div class="col-sm-5" style="padding-right: 0">
+            <div class="col-sm-5" style="padding: 0">
               <input type="time" class="form-control" name="end" value="<?=empty(set_value('end')) ? "19:40" : set_value('end')?>">
             </div>
             <div class="clearfix"></div>
@@ -109,6 +112,6 @@
           </div>
         </form>
       </div>
-    </div><!-- /.row -->
-  </div><!-- /.container-fluid -->
-</div><!-- /#page-wrapper -->
+    </div>
+  </div>
+</div>
