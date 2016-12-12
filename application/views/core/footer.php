@@ -2,7 +2,7 @@
 <div id="footer">
   <!-- Copyright -->
   <ul class="copyright">
-    <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Demo Images: <a href="http://ineedchemicalx.deviantart.com/">Felicia Simion</a> + <a href="http://unsplash.com">Unsplash</a></li>
+    <li>&copy; 2016 Passionate Silver. All rights reserved.</li><li>2016 Dimigo Hackathon</li><li>Team Passionate Silver</li>
   </ul>
 </div>
 

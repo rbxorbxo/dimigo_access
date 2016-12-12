@@ -18,7 +18,7 @@
     </div>
   </section>
 
-  <div class="container-fluid">
+  <div class="container">
 
     <div class="row">
       <div class="col-lg-12">
@@ -82,6 +82,6 @@
           </table>
         </div>
       </div>
-    </div><!-- /.row -->
-  </div><!-- /.container-fluid -->
-</div><!-- /#page-wrapper -->
+    </div>
+  </div>
+</div>

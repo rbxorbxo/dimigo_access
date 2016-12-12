@@ -18,7 +18,7 @@
     </div>
   </section>
 
-  <div class="container-fluid">
+  <div class="container">
 
     <div class="row">
       <div class="col-lg-12">
@@ -65,9 +65,9 @@
           </table>
         </div>
       </div>
-    </div><!-- /.row -->
-  </div><!-- /.container-fluid -->
-</div><!-- /#page-wrapper -->
+    </div>
+  </div>
+</div>
 <script>
 function deleteRequest(idx) {
   if (confirm("정말 삭제하시겠습니까?\n삭제한 이후에는 복구가 불가능합니다."))

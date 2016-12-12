@@ -18,7 +18,7 @@
     </div>
   </section>
 
-  <div class="container-fluid">
+  <div class="container">
 
     <!-- If form_valdation error exists, display it here -->
     <div class="row">
@@ -92,9 +92,9 @@
             </table>
           </div>
         </div>
-      </div><!-- /.row -->
+      </div>
       <?php
     }
     ?>
-  </div><!-- /.container-fluid -->
-</div><!-- /#page-wrapper -->
+  </div>
+</div>

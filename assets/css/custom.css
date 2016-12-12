@@ -62,13 +62,6 @@ small {
   margin-left: auto;
 }
 
-.container-fluid {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
 .row {
   margin: 0;
 }
@@ -82,15 +75,9 @@ small {
 #main > section {
   padding: 3em 0 0;
 }
-#main > section header {
-}
-#main > * {
-  margin-left: 10px;
-  margin-right: 10px;
-}
 
 .row > * {
-  padding: 0px 20px;
+  padding: 0;
 }
 
 table td,
@@ -125,9 +112,30 @@ header {
   margin: 0 0 1em 0;
 }
 
+#header {
+  z-index: 99999;
+}
+#main {
+  margin-bottom: 100px;
+}
 #footer {
-  margin-top: auto;
-  margin-bottom: 0;
+  z-index: 9999;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 30px 0;
+}
+@media screen and (max-width: 1320px) and (min-width: 961px) {
+  #footer > ul {
+    padding-left: 20%;
+  }
+}
+@media screen and (min-width: 961px) {
+  #footer > ul {
+    padding-left: 300px;
+  }
 }
 
 #nav > ul > .active > a,
@@ -140,12 +148,32 @@ header {
 /* Custom Colored Panels */
 
 .panel {
+  margin: 0 10px 20px;
   padding: 0;
-  width: 100%;
 }
 
 .huge {
   font-size: 40px;
+}
+
+/*#8ebebc*/
+
+.panel-primary {
+  border-color: #8ebebc;
+}
+
+.panel-primary > .panel-heading {
+  border-color: #8ebebc;
+  color: #fff;
+  background-color: #8ebebc;
+}
+
+.panel-primary > a {
+  color: #8ebebc;
+}
+
+.panel-primary > a:hover {
+  color: #6f929d;
 }
 
 .panel-green {
@@ -200,4 +228,15 @@ header {
 
 .panel-yellow > a:hover {
   color: #df8a13;
+}
+
+@media screen and (max-width: 736px) {
+  .fa-5x {
+    font-size: 3.5em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .fa-5x {
+    font-size: 3em;
+  }
 }
