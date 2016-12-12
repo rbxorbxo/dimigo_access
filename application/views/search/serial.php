@@ -66,19 +66,19 @@
                   <?php
                   if (count($data)) {
                     ?>
-                  <td><?= $data->name ?></td>
-                  <td><?= $data->status == 1 ? "승인됨" : ($data->status == -1 ? "거부됨" : "대기중") ?></td>
-                  <td><?= $data->form ?></td>
-                  <td><?= $data->start_time ?></td>
-                  <td><?= $data->end_time ?></td>
-                  <td class="text-left"><?= $data->comment ?></td>
-                  <?php
-                } else {
+                    <td><?= $data->name ?></td>
+                    <td><?= $data->status == 2 ? "승인됨" : ($data->status < 0 ? "거부됨" : "대기중") ?></td>
+                    <td><?= $data->form ?></td>
+                    <td><?= $data->start_time ?></td>
+                    <td><?= $data->end_time ?></td>
+                    <td class="text-left"><?= $data->comment ?></td>
+                    <?php
+                  } else {
+                    ?>
+                    <td colspan="6" class="text-center">찾으시는 데이터가 존재하지 않습니다.</td>
+                    <?php
+                  }
                   ?>
-                  <td colspan="6" class="text-center">찾으시는 데이터가 존재하지 않습니다.</td>
-                  <?php
-                }
-                ?>
                 </tr>
               </tbody>
             </table>

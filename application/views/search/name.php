@@ -62,7 +62,7 @@
               <table class="table table-bordered table-hover table-striped">
                 <thead>
                   <tr>
-                  <th style="width: 70px;">이름</th>
+                    <th style="width: 70px;">이름</th>
                     <th style="width: 90px;">승인 여부</th>
                     <th style="width: 80px;">외출 사유</th>
                     <th style="width: 70px;">외출</th>
@@ -77,7 +77,7 @@
                     ?>
                     <tr>
                       <td><?= $req->name ?></td>
-                      <td><?= $req->status == 1 ? "승인됨" : ($req->status == -1 ? "거부됨" : "대기중") ?></td>
+                      <td><?= $req->status == 2 ? "승인됨" : ($req->status < 0 ? "거부됨" : "대기중") ?></td>
                       <td><?= $req->form ?></td>
                       <td><?= $req->start_time ?></td>
                       <td><?= $req->end_time ?></td>
