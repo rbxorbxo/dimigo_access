@@ -80,14 +80,14 @@
               if ($reason->form_idx != 1) {
                 ?>
                 <label class="form-group form-control">
-                  <input type="radio" name="reason" value="<?=$reason->form_idx?>"> <?=$reason->form?>
+                  <input type="radio" name="reason" value="<?=$reason->form_idx?>" <?= $reason->form_idx == set_value('reason') ? "checked" : "" ?>> <?=$reason->form?>
                 </label>
                 <?php
               }
             }
             ?>
             <label class="form-group form-control">
-              <input type="radio" name="reason" value="1"> 기타
+              <input type="radio" name="reason" value="1" <?= set_value('reason') == 1 ? "checked" : "" ?>> 기타
             </label>
           </div>
           <div class="form-group">
@@ -105,7 +105,7 @@
           </div>
           <div class="form-group">
             <h3 class="text-left">코멘트</h3>
-            <textarea class="form-control" name="comment" placeholder="자유롭게 작성해 주세요" value="<?=set_value('comment')?>"></textarea>
+            <textarea class="form-control" name="comment" placeholder="자유롭게 작성해 주세요. 단, 외출 사유가 '기타'인 경우 사유를 적어 주세요" value="<?=set_value('comment')?>"></textarea>
           </div>
           <div class="form-group text-right">
             <input type="submit" class="btn btn-primary" value="신청하기">

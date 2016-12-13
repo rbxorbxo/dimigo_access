@@ -9,7 +9,7 @@ class Request extends CI_Controller {
     $this->load->model('request_model');
 
     if (empty($this->session->userdata('userid'))) {
-      $this->session->set_flashdata('message', '학생 전용 페이지입니다');
+      $this->session->set_flashdata('message', '로그인이 필요합니다');
       redirect(site_url("auth/login"));
     } else if ($this->session->userdata('usertype') != "S") {
       $this->session->set_flashdata('message', '학생 전용 페이지입니다');

@@ -48,3 +48,8 @@
     </div>
   </div>
 </div>
+<script>
+$(document).ready(function() {
+  $("input[name=USER_ID]").focus();
+});
+</script>

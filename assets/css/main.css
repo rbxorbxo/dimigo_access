@@ -1711,10 +1711,10 @@
 			background: #f00;
 		}
 
-			.image.avatar48 img {
+			/* .image.avatar48 img {
 				width: 48px;
 				height: 48px;
-			}
+			} */
 
 		.image.fit {
 			display: block;

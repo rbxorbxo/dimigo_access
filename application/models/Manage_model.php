@@ -112,26 +112,22 @@ class Manage_model extends CI_Model {
     }
   }
 
-  function Modify_data($idx , $go , $end){
-    $this->db->where(array('idx'=>$idx));
+  function reset($idx){
+    $original = $this->db->get_where('outaccess_detail', array('idx' => $idx))->row();
 
-    if ($go == "reject" && $end =="admit") {
+    if (($this->session->userdata('userclass') == 0 ? $original->admit2 : $original->admit1) == 1) {
+      $this->session->set_flashdata('message', '이미 승인하신 요청은 취소할 수 없습니다');
+    } else if ($this->session->userdata('userclass') == 0 && $original->admit1 -2) {
+      $this->session->set_flashdata('message', '담임선생님께서 이미 거부하셨습니다');
+    } else {
+      $this->db->where(array('idx'=>$idx));
       if ($this->session->userdata('userclass') == 0) {
-        $this->db->update('outaccess_detail', array('admit2' => 1));
+        $this->db->update('outaccess_detail', array('admit2' => 0));
       } else {
-        $this->db->update('outaccess_detail', array('admit1' => 1));
+        $this->db->update('outaccess_detail', array('admit1' => 0));
       }
+      $this->session->set_flashdata("message", "취소되었습니다");
     }
-
-    else if ($go == "admit" && $end =="reject") {
-        if ($this->session->userdata('userclass') == 0) {
-          $this->db->update('outaccess_detail', array('admit2' => -2));
-        } else {
-          $this->db->update('outaccess_detail', array('admit1' => -2));
-        }
-    }
-
-    $this->session->set_flashdata("message","변경되었습니다!");
     redirect($this->input->get("prev"));
   }
 }
