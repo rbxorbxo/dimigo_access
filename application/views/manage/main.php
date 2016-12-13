@@ -96,7 +96,7 @@
               </div>
               <div class="col-xs-9 text-right">
                 <div class="huge"><?=$num['admit']?></div>
-                <div>수락된 외출</div>
+                <div>승인된 외출</div>
               </div>
             </div>
           </div>

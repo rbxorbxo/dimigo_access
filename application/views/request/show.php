@@ -37,26 +37,35 @@
             </thead>
             <tbody>
               <?php
-              foreach ($requests as $req) {
+              if (count($requests)) {
+                foreach ($requests as $req) {
+                  ?>
+                  <tr>
+                    <td><?= $req->status == 2 ? "승인됨" : ($req->status < 0 ? "거부됨" : "대기중") ?></td>
+                    <td><?= $req->form ?></td>
+                    <td><?= $req->start_time ?></td>
+                    <td><?= $req->end_time ?></td>
+                    <td class="text-left"><?= $req->comment ?></td>
+                    <td><?= $req->serial ?></td>
+                    <td>
+                      <a href="<?= $req->status == 0 ? site_url('request/edit/'.$req->idx) : '#' ?>"
+                        class="btn btn-warning"
+                        <?= $req->status > 0 ? "disabled" : "" ?>
+                        <?= $req->status < 0 ? "onclick='alert(\"$req->reject_comment\")'" : "" ?>>
+                        <?= $req->status < 0 ? "사유" : "수정" ?>
+                      </a>
+                      <a href="#" onclick="deleteRequest(<?=$req->idx?>)" class="btn btn-danger"
+                        <?= $req->status > 0 ? "disabled" : "" ?>>
+                        삭제
+                      </a>
+                    </td>
+                  </tr>
+                  <?php
+                }
+              } else {
                 ?>
                 <tr>
-                  <td><?= $req->status == 2 ? "승인됨" : ($req->status < 0 ? "거부됨" : "대기중") ?></td>
-                  <td><?= $req->form ?></td>
-                  <td><?= $req->start_time ?></td>
-                  <td><?= $req->end_time ?></td>
-                  <td class="text-left"><?= $req->comment ?></td>
-                  <td><?= $req->serial ?></td>
-                  <td>
-                    <a href="<?= $req->status == 0 ? site_url('request/edit/'.$req->idx) : '#" onclick="return false' ?>"
-                      class="btn btn-warning"
-                      <?= $req->status != 0 ? "disabled" : "" ?>>
-                      수정
-                    </a>
-                    <a href="#" onclick="deleteRequest(<?=$req->idx?>)" class="btn btn-danger"
-                      <?= $req->status > 0 ? "disabled" : "" ?>>
-                      삭제
-                    </a>
-                  </td>
+                  <td colspan="7" class="text-center">찾으시는 데이터가 존재하지 않습니다.</td>
                 </tr>
                 <?php
               }

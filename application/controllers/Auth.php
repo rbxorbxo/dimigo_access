@@ -85,7 +85,8 @@ class Auth extends CI_Controller {
           "usertype" => $result->user_type,   // user 타입
           "usergrade" => $result1->grade,     // user 학년
           "userclass" => $result1->class,     // user 반
-          "rfidcode" => $result1->rfcard_uid  // user rfid 코드
+          "rfidcode" => $result1->rfcard_uid, // user rfid 코드
+          "userphoto" => $result1->photofile1 // user 이미지
         );
 
         $this->session->set_userdata($data);

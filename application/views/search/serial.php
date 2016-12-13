@@ -41,7 +41,7 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <h2 class="text-center" style="margin: 20px 0">조회할 번호를 입력하세요</h2>
+        <h3 class="text-center" style="margin: 20px 0">조회할 번호를 입력하세요</h3>
         <form method="post" action="<?=site_url('search/serial')?>" style="max-width: 400px;margin: 0 auto" role="form">
           <div class="form-group">
             <input type="text" class="form-control text-center" name="serialNo" value="<?=set_value('serialNo')?>" placeholder="일련번호를 입력하세요" maxlength="">

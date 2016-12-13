@@ -8,7 +8,7 @@ class Manage extends CI_Controller {
     $this->load->model('manage_model');
 
     if (empty($this->session->userdata('userid'))) {
-      $this->session->set_flashdata('message', '교사 전용 페이지입니다');
+      $this->session->set_flashdata('message', '로그인이 필요합니다');
       redirect(site_url("auth/login"));
     } else if ($this->session->userdata('usertype') != "T") {
       $this->session->set_flashdata('message', '교사 전용 페이지입니다');
@@ -70,7 +70,7 @@ class Manage extends CI_Controller {
     $this->manage_model->Insert_data($idx, "reject", $comment);
   }
 
-  function Modify_admit($idx){
-    $this->manage_model->Modify_data($idx, "reject", "admit");
+  function reset($idx){
+    $this->manage_model->reset($idx);
   }
 }
