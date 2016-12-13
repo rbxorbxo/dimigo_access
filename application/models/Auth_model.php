@@ -13,10 +13,10 @@ class Auth_model extends CI_Model {
 
     $ch = curl_init();
 
-    curl_setopt($ch,CURLOPT_URL,"http://".$_DIMIGO_API_HOST.$url);
+    curl_setopt($ch, CURLOPT_URL,"http://".$_DIMIGO_API_HOST.$url);
     curl_setopt($ch, CURLOPT_USERPWD, $_DIMIGO_API_ID.":".$_DIMIGO_API_PW);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, $isSSL == true ? 1 : 0);
-    curl_setopt($ch,CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
     $result = curl_exec($ch);
 

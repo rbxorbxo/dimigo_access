@@ -73,21 +73,44 @@ class Auth extends CI_Controller {
       if ($getUserData["HTTP_CODE"] == 200) {
         $result = $getUserData["HTTP_RESULT"][0];
 
-        $apiURL = "/v1/user-students/";
-        $getUserBasicData = $this->auth_model->GETAPI($apiURL.$USERID);
+        if ($result->user_type == "S") {
+          $apiURL = "/v1/user-students/";
+          $getUserBasicData = $this->auth_model->GETAPI($apiURL.$USERID);
 
-        $result1 = $getUserBasicData['HTTP_RESULT'];
+          $result1 = $getUserBasicData['HTTP_RESULT'];
 
-        $data = array(
-          "idx" => $result->id,               // user 인덱스
-          "userid" => $result->username,      // user id
-          "username" => $result->name,        // user 이름
-          "usertype" => $result->user_type,   // user 타입
-          "usergrade" => $result1->grade,     // user 학년
-          "userclass" => $result1->class,     // user 반
-          "rfidcode" => $result1->rfcard_uid, // user rfid 코드
-          "userphoto" => $result1->photofile1 // user 이미지
-        );
+          $data = array(
+            "idx" => $result->id,               // user 인덱스
+            "userid" => $result->username,      // user id
+            "username" => $result->name,        // user 이름
+            "usertype" => $result->user_type,   // user 타입
+
+            "usergrade" => $result1->grade,     // user 학년
+            "userclass" => $result1->class,     // user 반
+            "rfidcode" => $result1->rfcard_uid, // user rfid 코드
+            "userphoto" => $result1->photofile1 // user 이미지
+          );
+        } else if ($result->user_type == "T") {
+          // http://api.dimigo.org/v1/user-teachers/[username]
+          $apiURL = "/v1/user-teachers/";
+          $getUserBasicData = $this->auth_model->GETAPI($apiURL.$result->username);
+
+          $result1 = $getUserBasicData['HTTP_RESULT'];
+
+          if (preg_match("/\d학년부장/", $result1->role_name))
+          $result1->class = 0;
+
+          $data = array(
+            "idx" => $result->id,               // user 인덱스
+            "userid" => $result->username,      // user id
+            "username" => $result->name,        // user 이름
+            "usertype" => $result->user_type,   // user 타입
+
+            "usergrade" => $result1->grade,     // user 학년
+            "userclass" => $result1->class      // user 반
+          );
+        }
+
 
         $this->session->set_userdata($data);
 
