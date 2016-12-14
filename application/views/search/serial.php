@@ -52,6 +52,7 @@
         </form>
       </div>
     </div><!-- /.row -->
+
     <?php
     if ($data !== FALSE) {
       ?>
@@ -70,24 +71,28 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <?php
-                  if (count($data)) {
+                <?php
+                if (count($data)) {
+                  foreach ($data as $req) {
                     ?>
-                    <td><?= $data->name ?></td>
-                    <td><?= $data->status == 2 ? "승인됨" : ($data->status < 0 ? "거부됨" : "대기중") ?></td>
-                    <td><?= $data->form ?></td>
-                    <td><?= $data->start_time ?></td>
-                    <td><?= $data->end_time ?></td>
-                    <td class="text-left"><?= $data->comment ?></td>
-                    <?php
-                  } else {
-                    ?>
-                    <td colspan="6" class="text-center">찾으시는 데이터가 존재하지 않습니다.</td>
+                    <tr>
+                      <td><?= $req->name ?></td>
+                      <td><?= $req->status == 2 ? "승인됨" : ($req->status < 0 ? "거부됨" : "대기중") ?></td>
+                      <td><?= $req->form ?></td>
+                      <td><?= $req->start_time ?></td>
+                      <td><?= $req->end_time ?></td>
+                      <td class="text-left"><?= $req->comment ?></td>
+                    </tr>
                     <?php
                   }
+                } else {
                   ?>
-                </tr>
+                  <tr>
+                    <td colspan="6" class="text-center">찾으시는 데이터가 존재하지 않습니다.</td>
+                  </tr>
+                  <?php
+                }
+                ?>
               </tbody>
             </table>
           </div>

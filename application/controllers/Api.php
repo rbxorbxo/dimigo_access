@@ -22,4 +22,12 @@ class Api extends CI_Controller {
       "result"  => $this->api_model->getInfoByRfidCode($rfid))
     ));
   }
+
+  public function rfidtime($rfid) {
+    $res = $this->api_model->rfid_timestamp($rfid);
+    die(json_encode(array(
+      "status"  => $res,
+      "result"  => $res ? "Success" : "Internal Server Error"
+    )));
+  }
 }

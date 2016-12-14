@@ -51,7 +51,7 @@
                     <td><?= $req->serial ?></td>
 
                     <td>
-                      <a class="btn btn-primary" href="<?=site_url('/manage/Insert_admit/'.$req->idx);?>">승인</a>
+                      <a class="btn btn-primary" href="<?=site_url('/manage/Insert_admit/'.$req->idx.'?prev='.current_url());?>">승인</a>
                       <a class="btn btn-danger" data-toggle="modal" data-target="#reject<?=$req->idx?>">거부</a>
                     </td>
                   </tr>
@@ -63,7 +63,7 @@
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                           <h4 class="modal-title" id="exampleModalLabel">거부</h4>
                         </div>
-                        <form method="post" action="<?=site_url('manage/Insert_reject').'/'.$req->idx?>">
+                        <form method="post" action="<?=site_url('manage/Insert_reject').'/'.$req->idx.'?prev='.current_url()?>">
                           <div class="modal-body">
                             <div class="form-group">
                               <label for="message-text" class="control-label">거부 이유:</label>

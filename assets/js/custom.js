@@ -3,8 +3,8 @@ function getSegments(url) {
 }
 
 $(document).ready(function() {
-  $("#main").css("margin-bottom", $("#footer").outerHeight());
+  $("#footer-margin").css("height", $("#footer").outerHeight());
 });
 $(window).resize(function() {
-  $("#main").css("margin-bottom", $("#footer").outerHeight());
+  $("#footer-margin").css("height", $("#footer").outerHeight());
 });

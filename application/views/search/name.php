@@ -52,35 +52,28 @@
         </form>
       </div>
     </div><!-- /.row -->
+
     <?php
     if ($data !== FALSE) {
-      if (count($data) == 0) {
-        ?>
-        <div class="row" style="margin-top: 50px;">
-          <div class="col-lg-12">
-            <h3 class="text-center">찾으시는 데이터가 존재하지 않습니다.</h3>
-          </div>
-        </div><!-- /.row -->
-        <?php
-      } else {
-        ?>
-        <div class="row" style="margin-top: 50px;">
-          <div class="col-lg-12">
-            <div class="table-responsive">
-              <table class="table table-bordered table-hover table-striped">
-                <thead>
-                  <tr>
-                    <th style="width: 70px;">이름</th>
-                    <th style="width: 90px;">승인 여부</th>
-                    <th style="width: 80px;">외출 사유</th>
-                    <th style="width: 70px;">외출</th>
-                    <th style="width: 70px;">귀교</th>
-                    <th>비고</th>
-                    <th style="width: 120px;">일련번호</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
+      ?>
+      <div class="row" style="margin-top: 50px;">
+        <div class="col-lg-12">
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+              <thead>
+                <tr>
+                  <th style="width: 70px;">이름</th>
+                  <th style="width: 90px;">승인 여부</th>
+                  <th style="width: 80px;">외출 사유</th>
+                  <th style="width: 70px;">외출</th>
+                  <th style="width: 70px;">귀교</th>
+                  <th>비고</th>
+                  <th style="width: 120px;">일련번호</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                if (count($data)) {
                   foreach ($data as $req) {
                     ?>
                     <tr>
@@ -94,14 +87,20 @@
                     </tr>
                     <?php
                   }
+                } else {
                   ?>
-                </tbody>
-              </table>
-            </div>
+                  <tr>
+                    <td colspan="7">찾으시는 데이터가 존재하지 않습니다</td>
+                  </tr>
+                  <?php
+                }
+                ?>
+              </tbody>
+            </table>
           </div>
         </div>
-        <?php
-      }
+      </div><!-- /.row -->
+      <?php
     }
     ?>
   </div>

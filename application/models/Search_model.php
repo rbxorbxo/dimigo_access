@@ -17,7 +17,7 @@ class Search_model extends CI_Model {
     ->join('outaccess_form', 'r_outaccess.form = outaccess_form.form_idx', 'left')
     ->like('r_outaccess.submit_time', $date->format('Y-m-d'), 'after')
     ->where(array('serial'=>$serial))
-    ->get()->row();
+    ->get()->result();
   }
 
   function get_name($name){
