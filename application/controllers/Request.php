@@ -28,7 +28,7 @@ class Request extends CI_Controller {
     $date = new DateTime('now', new DateTimeZone('Asia/Seoul'));
     if (!(8 <= (int)$date->format('G') && (int)$date->format('G') < 18)) {
       $this->session->set_flashdata('message', '신청 시간이 아닙니다.\\n(08:00 ~ 18:00)');
-      redirect(site_url('request'));
+      //redirect(site_url('request'));
     }
 
     $this->form_validation->set_rules('reason', '외출 사유', 'trim|required');

@@ -55,7 +55,7 @@
                       ?>
                       <td><button class="btn btn-danger" onclick="changeAdmit(<?=$req->idx?>)">거부됨</button></td>
                       <?php
-                    } else if ($req->status == 0 && $this->session->userdata('userclass') == 0) {
+                    } else if ($req->status == 0 && $this->session->userdata('userlevel')) {
                       ?>
                       <td><a class="btn btn-success" href="#" onclick="return false" disabled>대기중</a></td>
                       <?php
@@ -63,7 +63,7 @@
                       ?>
                       <td><a class="btn btn-primary" href="#" onclick="return false" disabled>승인됨</a></td>
                       <?php
-                    } else if ($req->status == 1 && $this->session->userdata('userclass') != 0) {
+                    } else if ($req->status == 1 && !($this->session->userdata('userlevel'))) {
                       ?>
                       <td><a class="btn btn-primary" href="#" onclick="return false" disabled>승인됨</a></td>
                       <?php

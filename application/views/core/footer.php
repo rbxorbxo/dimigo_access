@@ -1,3 +1,5 @@
+<div id="footer-margin"></div>
+
 <!-- Footer -->
 <div id="footer">
   <!-- Copyright -->
