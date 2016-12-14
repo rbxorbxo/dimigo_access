@@ -123,7 +123,7 @@ class Manage_model extends CI_Model {
         ->update('outaccess_detail', array('admit2' => 1));
       }
 
-      $this->session->set_flashdata("message", "인증되었습니다.");
+      $this->session->set_flashdata("message", "승인되었습니다.");
       redirect($this->input->get("prev"));
 
     } else if ($type == "reject") {
