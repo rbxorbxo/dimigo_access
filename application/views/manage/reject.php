@@ -29,11 +29,10 @@
                 <th style="width: 70px;">이름</th>
                 <th style="width: 90px;">승인 여부</th>
                 <th style="width: 80px;">외출 사유</th>
-                <th style="width: 70px;">외출</th>
-                <th style="width: 70px;">귀교</th>
+                <th style="width: 120px;">외출 예정 시간</th>
                 <th>비고</th>
                 <th style="width: 120px;">일련번호</th>
-                <th style="width:80px;">승인/거부</th>
+                <th style="width: 90px;">승인/거부</th>
               </tr>
             </thead>
             <tbody>
@@ -45,8 +44,7 @@
                     <td><?= $req->name ?></td>
                     <td>거부됨</td>
                     <td><?= $req->form ?></td>
-                    <td><?= $req->start_time ?></td>
-                    <td><?= $req->end_time ?></td>
+                    <td><?= $req->start_time." ~ ".$req->end_time ?></td>
                     <td class="text-left"><?= $req->comment ?></td>
                     <td><?= $req->serial ?></td>
                     <td><button class="btn btn-danger" onclick="changeAdmit(<?=$req->idx?>)">거부됨</button></td>

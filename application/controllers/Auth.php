@@ -76,7 +76,6 @@ class Auth extends CI_Controller {
           $this->session->set_flashdata('message', '담임교사 또는 학년부장이 아닙니다');
         } else {
           $this->session->set_userdata($data);
-          $this->session->set_flashdata('message', json_encode($this->session->all_userdata()));
         }
 
         redirect(site_url('/'));
