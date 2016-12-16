@@ -4,7 +4,7 @@
     <div class="container">
 
       <header>
-        <h2 class="text-left" style="padding-left: 10px; padding-right: 10px;">Login <small>via Dimigoin Account</small></h2>
+        <h2 class="text-left" style="padding-left: 10px; padding-right: 10px;">Login <small>with Dimigoin Account</small></h2>
       </header>
 
     </div>
